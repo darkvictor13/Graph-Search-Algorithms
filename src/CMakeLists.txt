@@ -3,7 +3,7 @@ project(Graph_Search_Algorithms)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(src)
+include_directories(.)
 
 add_executable(Graph_Search_Algorithms
-        src/main.cpp)
+        main.cpp)
