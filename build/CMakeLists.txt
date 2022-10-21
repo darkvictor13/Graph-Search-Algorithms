@@ -4,7 +4,7 @@ project(Graph_Search_Algorithms VERSION 0.1.0)
 #include(CTest)
 #enable_testing()
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
 
 # Get all src files
 set(SRC_DIR ../src)

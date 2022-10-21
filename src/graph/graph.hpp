@@ -1,12 +1,14 @@
 #pragma once
 
+#include <unordered_map>
 #include <vector>
 
-#include "graph_node.hpp"
+#include "adjacency_node.hpp"
 
 class Graph {
     private:
-        std::vector<std::vector<GraphNode>> nodes;
+        // mapeia o nó para a lista de seus adjacentes
+        std::unordered_map<std::string, std::vector<AdjacencyNode>> nodes;
 
     public:
         Graph();
