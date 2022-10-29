@@ -13,7 +13,7 @@ const char* Logger::getLevelName(const LogLevel level) {
     return levelNames[static_cast<int>(level)];
 }
 
-Logger::Logger() : _level(LogLevel::DEBUG) {
+Logger::Logger() : _level(DEFAULT_LOG_LEVEL) {
 }
 
 // TODO usar std::format
@@ -43,10 +43,11 @@ Logger& Logger::getInstance() {
 }
 
 void Logger::setLevel(const LogLevel level) {
+    _level = level;
 }
 
 void Logger::doLog(const LogLevel level, const std::string_view message,
-                   const std::source_location source) {
+                   const std::source_location& source) {
     if (level < _level) {
         return;
     }
@@ -54,7 +55,7 @@ void Logger::doLog(const LogLevel level, const std::string_view message,
               << "]["
               << std::filesystem::path(source.file_name()).filename().string()
               << ':' << source.function_name() << ':' << source.line()
-              << "]: " << message << std::endl;
+              << "]: " << message << '\n';
 }
 
 Logger::~Logger() {
