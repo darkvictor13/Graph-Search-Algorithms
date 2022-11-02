@@ -21,13 +21,18 @@ FileLogger& FileLogger::getInstance() {
     return instance;
 }
 
-std::ofstream& FileLogger::operator<<(const std::string_view message) {
+FileLogger& FileLogger::operator<<(const std::string_view message) {
     if (_is_ready) {
         _out << message;
     }
-    return _out;
+    return *this;
+}
+
+void FileLogger::destroy() {
+    _out.flush();
+    _out.close();
 }
 
 FileLogger::~FileLogger() {
-    _out.close();
+    destroy();
 }

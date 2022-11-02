@@ -23,11 +23,6 @@ class FileLogger {
         FileLogger();
 
     public:
-        /**
-         * @brief
-         *
-         * @param path
-         */
         void build(const char* path);
         /**
          * @brief Pegue a instância do FileLogger.
@@ -35,6 +30,7 @@ class FileLogger {
          * @return FileLogger& instância do FileLogger.
          */
         static FileLogger& getInstance();
-        std::ofstream& operator<<(const std::string_view message);
+        FileLogger& operator<<(const std::string_view message);
+        void destroy();
         ~FileLogger();
 };

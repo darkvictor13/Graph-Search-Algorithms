@@ -51,12 +51,6 @@ class Logger {
          * @return const char* a string do nível de log.
          */
         const char* getLevelName(const LogLevel level);
-        /**
-         * @brief Método auxiliar para obter a data e hora atual formatada.
-         *
-         * @return std::string a data e hora formatada.
-         */
-        std::string getFormattedTime();
 
     public:
         /**

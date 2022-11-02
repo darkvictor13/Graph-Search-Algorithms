@@ -4,8 +4,8 @@
 
 class AdjacencyNode {
     private:
-        std::string id;
-        int16_t weight;
+        std::string _id;
+        int16_t _weight;
 
     public:
         AdjacencyNode();

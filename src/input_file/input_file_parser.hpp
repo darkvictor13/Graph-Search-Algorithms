@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string_view>
 
-#include "graph/graph.hpp"
+#include "../graph/graph.hpp"
 
 class InputFileParser {
     private:

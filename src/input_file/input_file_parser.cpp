@@ -3,7 +3,7 @@
 #include <string>
 #include <string_view>
 
-#include "utils/log_macros.hpp"
+#include "../logs/log_macros.hpp"
 
 InputFileParser::InputFileParser(const std::string_view path) {
     DEBUG_LOG("Construtor");
@@ -22,6 +22,7 @@ Graph InputFileParser::parse() {
     Graph graph;
     std::string line;
     while (!_in.eof()) {
+        DEBUG_LOG("Lendo linha");
         std::getline(_in, line);
         if (line.empty() || line[0] == '%') {
             continue;

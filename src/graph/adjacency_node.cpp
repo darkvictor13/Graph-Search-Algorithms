@@ -1,6 +1,6 @@
 #include "adjacency_node.hpp"
 
-#include "../utils/log_macros.hpp"
+#include "../logs/log_macros.hpp"
 
 AdjacencyNode::AdjacencyNode() {
     DEBUG_LOG("Construtor");
