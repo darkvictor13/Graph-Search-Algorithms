@@ -1,5 +1,6 @@
 #include "input_file_parser.hpp"
 
+#include <iostream>
 #include <string>
 #include <string_view>
 
@@ -21,11 +22,28 @@ Graph InputFileParser::parse() {
 
     Graph graph;
     std::string line;
+    // line.reserve(64);
     while (!_in.eof()) {
-        DEBUG_LOG("Lendo linha");
+        // get the line and save in line
         std::getline(_in, line);
-        if (line.empty() || line[0] == '%') {
+        if (line.empty() || line.front() == '%') {
             continue;
+        }
+
+        const auto first_parenthesis = line.find('(');
+        // the first word is the beginning of the line to the first parenthesis
+        const std::string_view first_word = line.substr(0, first_parenthesis);
+        const auto arguments = std::move(line.substr(
+            first_parenthesis + 1,
+            line.find(')', first_parenthesis + 2) - first_parenthesis - 1));
+
+        std::cout << "first_word: " << first_word << '\n';
+        DEBUG_LOG(arguments.c_str());
+
+        if (first_word == "ilha_inicial") {
+            graph.setStartNode(arguments);
+        } else if (first_word == "ilha_final") {
+            graph.setEndNode(arguments);
         }
     }
 
