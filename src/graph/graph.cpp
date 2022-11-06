@@ -19,12 +19,28 @@ std::vector<std::string> Graph::AStar() {
     return path;
 }
 
-Graph::Graph()
+Graph::Graph() noexcept
     : _nodes(),
       _start_node(),
       _end_node(),
       _algorithm(Algorithms::ALGORITHM_INVALID) {
     DEBUG_LOG("Construtor");
+}
+
+Graph::Graph(const Graph& other) noexcept
+    : _nodes(other._nodes),
+      _start_node(other._start_node),
+      _end_node(other._end_node),
+      _algorithm(other._algorithm) {
+    DEBUG_LOG("Copy constructor");
+}
+
+Graph::Graph(Graph&& other) noexcept
+    : _nodes(std::move(other._nodes)),
+      _start_node(std::move(other._start_node)),
+      _end_node(std::move(other._end_node)),
+      _algorithm(other._algorithm) {
+    DEBUG_LOG("Move constructor");
 }
 
 void Graph::setStartNode(const std::string& start_node) {

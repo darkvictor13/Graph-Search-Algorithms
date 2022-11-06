@@ -111,7 +111,6 @@ int main(int argc, const char* const* argv) {
         return EXIT_FAILURE;
     }
 
-    Graph graph;
     bool ret;
 
     // analisando argv[1]
@@ -121,9 +120,8 @@ int main(int argc, const char* const* argv) {
         return EXIT_SUCCESS;
     }
 
-    InputFileParser parser =
-        InputFileParser(arg.empty() ? getInputFile() : arg);
-    graph = parser.parse();
+    InputFileParser parser(arg.empty() ? getInputFile() : arg);
+    Graph graph(std::move(parser.parse()));
 
     // analisando argv[2]
     auto& file_logger = FileLogger::getInstance();

@@ -51,7 +51,9 @@ class Graph {
         /**
          * @brief Construtor padrão.
          */
-        Graph();
+        Graph() noexcept;
+        Graph(const Graph& other) noexcept;
+        Graph(Graph&& other) noexcept;
 
         /**
          * @brief Atualiza o nó inicial do grafo.
