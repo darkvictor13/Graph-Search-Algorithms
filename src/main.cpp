@@ -1,14 +1,18 @@
+#include <unistd.h>
+
 #include <cctype>
 #include <cstdlib>
 #include <filesystem>
 #include <iostream>
 #include <string_view>
+#include <thread>
 
 #include "graph/graph.hpp"
 #include "input_file/input_file_parser.hpp"
 #include "logs/date_time.hpp"
 #include "logs/file_logger.hpp"
 #include "logs/log_macros.hpp"
+#include "timer/scoped_timer.hpp"
 
 /**
  * @mainpage Documentação do projeto
@@ -62,8 +66,8 @@ bool getResponse(const char* question) {
 
 std::string getInputFile() {
     std::string input_file = "input_files/exemplo_prof.txt";
-    std::cout << "Arquivo de entrada padrao: " << input_file << '\n';
-    if (getResponse("Deseja usar o arquivo de entrada padrao?") == false) {
+    std::cout << "Arquivo de entrada padrão: " << input_file << '\n';
+    if (getResponse("Deseja usar o arquivo de entrada padrão?") == false) {
         std::cout << "Digite o caminho do arquivo de entrada: ";
         std::cin >> input_file;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -137,6 +141,15 @@ int main(int argc, const char* const* argv) {
     file_logger << "Arquivo de entrada: " << arg << "\n"
                 << "Data: " << getFormattedDate() << "\n"
                 << "Hora: " << getFormattedTime() << "\n";
+
+    {
+        char buffer[64];
+        ScopedTimer t([](const char* scope, const char* time) {
+            FileLogger::getInstance() << scope << ": " << time << "\n";
+        });
+        // wait 1.1 second
+        std::this_thread::sleep_for(std::chrono::milliseconds(1100));
+    }
 
     // analisando argv[3]
     arg = argc > 3 ? argv[3] : "";
