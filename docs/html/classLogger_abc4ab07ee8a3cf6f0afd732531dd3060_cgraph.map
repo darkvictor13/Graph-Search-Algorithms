@@ -1,0 +1,4 @@
+<map id="Logger::doLog" name="Logger::doLog">
+<area shape="rect" id="node1" title="Imprime uma mensagem de log." alt="" coords="5,5,109,31"/>
+<area shape="rect" id="node2" href="$classLogger.html#a2e581de5d5ad5b796b506913d5340f86" title="Método auxiliar para obter a string a partir do nível de log." alt="" coords="157,5,311,31"/>
+</map>

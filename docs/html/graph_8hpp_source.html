@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Graph Search Algorithms: Código-Fonte de graph.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Graph Search Algorithms
+   </div>
+   <div id="projectbrief">TODO</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('graph_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhum resultado encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">graph.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;adjacency_node.hpp&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">enum class</span> Algorithms : <span class="keywordtype">char</span> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    ALGORITHM_A_STAR = <span class="charliteral">&#39;A&#39;</span>,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    ALGORITHM_BFS,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    ALGORITHM_INVALID</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classGraph.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="classGraph.html">Graph</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classGraph.html#a5ff4be5e6c1122466dc6e1a3fb93c9bc">   26</a></span>        std::unordered_map&lt;std::string, std::vector&lt;AdjacencyNode&gt;&gt; <a class="code hl_variable" href="classGraph.html#a5ff4be5e6c1122466dc6e1a3fb93c9bc">_nodes</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        std::string _start_node;  </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classGraph.html#a969b57c50d2c52d8bcbd616ebc675680">   29</a></span>        std::string <a class="code hl_variable" href="classGraph.html#a969b57c50d2c52d8bcbd616ebc675680">_end_node</a>;    </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classGraph.html#a99a4b0f8e08731da10b33ca46ea65071">   30</a></span>        Algorithms <a class="code hl_variable" href="classGraph.html#a99a4b0f8e08731da10b33ca46ea65071">_algorithm</a>;    </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        std::vector&lt;std::string&gt; <a class="code hl_function" href="classGraph.html#add885e1212ad6274c4a51cae9daba8bf">BFS</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        std::vector&lt;std::string&gt; <a class="code hl_function" href="classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9">AStar</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <a class="code hl_function" href="classGraph.html#ae329e61736f7e833c523589ab736e9f6">Graph</a>() noexcept;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <a class="code hl_class" href="classGraph.html">Graph</a>(const <a class="code hl_class" href="classGraph.html">Graph</a>&amp; other) noexcept;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_class" href="classGraph.html">Graph</a>(<a class="code hl_class" href="classGraph.html">Graph</a>&amp;&amp; other) noexcept;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classGraph.html#a387ce92d8e597a917a52fb98748de471">setStartNode</a>(const std::<span class="keywordtype">string</span>&amp; start_node);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classGraph.html#ab3376d2018d4bfcf52022b3918c9ad0b">setEndNode</a>(const std::<span class="keywordtype">string</span>&amp; end_node);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classGraph.html#ad1c79f602da7a17d624293b185ea28f2">isValidAlgorithm</a>(const <span class="keywordtype">char</span> algorithm) const;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classGraph.html#a3c50c1e486b21c9e83c1611af4f0bbcc">setAlgorithm</a>(const <span class="keywordtype">char</span> algorithm);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classGraph.html#a3c50c1e486b21c9e83c1611af4f0bbcc">setAlgorithm</a>(const Algorithms algorithm);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        std::vector&lt;std::<span class="keywordtype">string</span>&gt; <a class="code hl_function" href="classGraph.html#af6ace053ba7b48db3c0d12c300cdfc79">runAlgorithm</a>();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        ~<a class="code hl_class" href="classGraph.html">Graph</a>();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
+<div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdoc">Classe que representa um grafo.</div><div class="ttdef"><b>Definition:</b> graph.hpp:20</div></div>
+<div class="ttc" id="aclassGraph_html_a387ce92d8e597a917a52fb98748de471"><div class="ttname"><a href="classGraph.html#a387ce92d8e597a917a52fb98748de471">Graph::setStartNode</a></div><div class="ttdeci">void setStartNode(const std::string &amp;start_node)</div><div class="ttdoc">Atualiza o nó inicial do grafo.</div><div class="ttdef"><b>Definition:</b> graph.cpp:46</div></div>
+<div class="ttc" id="aclassGraph_html_a3c50c1e486b21c9e83c1611af4f0bbcc"><div class="ttname"><a href="classGraph.html#a3c50c1e486b21c9e83c1611af4f0bbcc">Graph::setAlgorithm</a></div><div class="ttdeci">void setAlgorithm(const char algorithm)</div><div class="ttdoc">Atualiza o algoritmo a ser executado.</div><div class="ttdef"><b>Definition:</b> graph.cpp:59</div></div>
+<div class="ttc" id="aclassGraph_html_a5ff4be5e6c1122466dc6e1a3fb93c9bc"><div class="ttname"><a href="classGraph.html#a5ff4be5e6c1122466dc6e1a3fb93c9bc">Graph::_nodes</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::vector&lt; AdjacencyNode &gt; &gt; _nodes</div><div class="ttdoc">Nós do grafo, mapeados pelo nome do nó a sua lista de adjacência.</div><div class="ttdef"><b>Definition:</b> graph.hpp:26</div></div>
+<div class="ttc" id="aclassGraph_html_a848c9e407fd4ee35b62a3a4f3115d7f9"><div class="ttname"><a href="classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9">Graph::AStar</a></div><div class="ttdeci">std::vector&lt; std::string &gt; AStar()</div><div class="ttdoc">Executa o algoritmo de busca A*.</div><div class="ttdef"><b>Definition:</b> graph.cpp:15</div></div>
+<div class="ttc" id="aclassGraph_html_a969b57c50d2c52d8bcbd616ebc675680"><div class="ttname"><a href="classGraph.html#a969b57c50d2c52d8bcbd616ebc675680">Graph::_end_node</a></div><div class="ttdeci">std::string _end_node</div><div class="ttdoc">nó inicial utilizado no algoritmo</div><div class="ttdef"><b>Definition:</b> graph.hpp:29</div></div>
+<div class="ttc" id="aclassGraph_html_a99a4b0f8e08731da10b33ca46ea65071"><div class="ttname"><a href="classGraph.html#a99a4b0f8e08731da10b33ca46ea65071">Graph::_algorithm</a></div><div class="ttdeci">Algorithms _algorithm</div><div class="ttdoc">nó final utilizado no algoritmo</div><div class="ttdef"><b>Definition:</b> graph.hpp:30</div></div>
+<div class="ttc" id="aclassGraph_html_ab3376d2018d4bfcf52022b3918c9ad0b"><div class="ttname"><a href="classGraph.html#ab3376d2018d4bfcf52022b3918c9ad0b">Graph::setEndNode</a></div><div class="ttdeci">void setEndNode(const std::string &amp;end_node)</div><div class="ttdoc">Atualiza o nó final do grafo.</div><div class="ttdef"><b>Definition:</b> graph.cpp:50</div></div>
+<div class="ttc" id="aclassGraph_html_ad1c79f602da7a17d624293b185ea28f2"><div class="ttname"><a href="classGraph.html#ad1c79f602da7a17d624293b185ea28f2">Graph::isValidAlgorithm</a></div><div class="ttdeci">bool isValidAlgorithm(const char algorithm) const</div><div class="ttdoc">Verifica se o caractere passado é um algoritmo válido.</div><div class="ttdef"><b>Definition:</b> graph.cpp:54</div></div>
+<div class="ttc" id="aclassGraph_html_add885e1212ad6274c4a51cae9daba8bf"><div class="ttname"><a href="classGraph.html#add885e1212ad6274c4a51cae9daba8bf">Graph::BFS</a></div><div class="ttdeci">std::vector&lt; std::string &gt; BFS()</div><div class="ttdoc">algoritmo a ser executado</div><div class="ttdef"><b>Definition:</b> graph.cpp:8</div></div>
+<div class="ttc" id="aclassGraph_html_ae329e61736f7e833c523589ab736e9f6"><div class="ttname"><a href="classGraph.html#ae329e61736f7e833c523589ab736e9f6">Graph::Graph</a></div><div class="ttdeci">Graph() noexcept</div><div class="ttdoc">Construtor padrão.</div><div class="ttdef"><b>Definition:</b> graph.cpp:22</div></div>
+<div class="ttc" id="aclassGraph_html_af6ace053ba7b48db3c0d12c300cdfc79"><div class="ttname"><a href="classGraph.html#af6ace053ba7b48db3c0d12c300cdfc79">Graph::runAlgorithm</a></div><div class="ttdeci">std::vector&lt; std::string &gt; runAlgorithm()</div><div class="ttdoc">Executa um algoritmo de busca no grafo.</div><div class="ttdef"><b>Definition:</b> graph.cpp:71</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_d182250f0c231765fc862e69db210731.html">graph</a></li><li class="navelem"><b>graph.hpp</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+  </ul>
+</div>
+</body>
+</html>

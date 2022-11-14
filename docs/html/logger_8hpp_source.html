@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Graph Search Algorithms: Código-Fonte de logger.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Graph Search Algorithms
+   </div>
+   <div id="projectbrief">TODO</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('logger_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhum resultado encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">logger.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="logger_8hpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;source_location&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="logger_8hpp.html#aca1fd1d8935433e6ba2e3918214e07f9">   15</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="logger_8hpp.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a> { DEBUG, INFO, WARNING, ERROR, FATAL };</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="logger_8hpp.html#a95c3aacd1944ae92017653ce77a369f4">   20</a></span><span class="keyword">constexpr</span> <a class="code hl_enumeration" href="logger_8hpp.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a> <a class="code hl_variable" href="logger_8hpp.html#a95c3aacd1944ae92017653ce77a369f4">DEFAULT_LOG_LEVEL</a> = LogLevel::DEBUG;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classLogger.html">   27</a></span><span class="keyword">class </span><a class="code hl_class" href="classLogger.html">Logger</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classLogger.html#a41eec039240624170e60832cb69463b5">   32</a></span>        <a class="code hl_enumeration" href="logger_8hpp.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a> <a class="code hl_variable" href="classLogger.html#a41eec039240624170e60832cb69463b5">_level</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classLogger.html#add0f34d4c753c86af8074840a72366b3">   40</a></span>        <a class="code hl_function" href="classLogger.html#add0f34d4c753c86af8074840a72366b3">Logger</a>(<span class="keyword">const</span> <a class="code hl_class" href="classLogger.html">Logger</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_function" href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c">Logger</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="classLogger.html#a2e581de5d5ad5b796b506913d5340f86">getLevelName</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="logger_8hpp.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a> level);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">static</span> <a class="code hl_class" href="classLogger.html">Logger</a>&amp; <a class="code hl_function" href="classLogger.html#acebb37f5538780e6c14f13de6ec497bc">getInstance</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classLogger.html#a2e43c08116a0756282fce9552a7c9cda">setLevel</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="logger_8hpp.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a> level);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classLogger.html#abc4ab07ee8a3cf6f0afd732531dd3060">doLog</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="logger_8hpp.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a> level, <span class="keyword">const</span> std::string_view message,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                   <span class="keyword">const</span> std::source_location&amp; source =</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                       std::source_location::current());</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_function" href="classLogger.html#acb668a9e186a25fbaad2e4af6d1ed00a">~Logger</a>();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
+<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">A classe Logger.</div><div class="ttdef"><b>Definition:</b> logger.hpp:27</div></div>
+<div class="ttc" id="aclassLogger_html_a2e43c08116a0756282fce9552a7c9cda"><div class="ttname"><a href="classLogger.html#a2e43c08116a0756282fce9552a7c9cda">Logger::setLevel</a></div><div class="ttdeci">void setLevel(const LogLevel level)</div><div class="ttdoc">Muda o nível de log para level.</div><div class="ttdef"><b>Definition:</b> logger.cpp:24</div></div>
+<div class="ttc" id="aclassLogger_html_a2e581de5d5ad5b796b506913d5340f86"><div class="ttname"><a href="classLogger.html#a2e581de5d5ad5b796b506913d5340f86">Logger::getLevelName</a></div><div class="ttdeci">const char * getLevelName(const LogLevel level)</div><div class="ttdoc">Método auxiliar para obter a string a partir do nível de log.</div><div class="ttdef"><b>Definition:</b> logger.cpp:9</div></div>
+<div class="ttc" id="aclassLogger_html_a41eec039240624170e60832cb69463b5"><div class="ttname"><a href="classLogger.html#a41eec039240624170e60832cb69463b5">Logger::_level</a></div><div class="ttdeci">LogLevel _level</div><div class="ttdoc">O nível de log atual.</div><div class="ttdef"><b>Definition:</b> logger.hpp:32</div></div>
+<div class="ttc" id="aclassLogger_html_abc41bfb031d896170c7675fa96a6b30c"><div class="ttname"><a href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c">Logger::Logger</a></div><div class="ttdeci">Logger()</div><div class="ttdoc">Construtor da classe Logger.</div><div class="ttdef"><b>Definition:</b> logger.cpp:16</div></div>
+<div class="ttc" id="aclassLogger_html_abc4ab07ee8a3cf6f0afd732531dd3060"><div class="ttname"><a href="classLogger.html#abc4ab07ee8a3cf6f0afd732531dd3060">Logger::doLog</a></div><div class="ttdeci">void doLog(const LogLevel level, const std::string_view message, const std::source_location &amp;source=std::source_location::current())</div><div class="ttdoc">Imprime uma mensagem de log.</div><div class="ttdef"><b>Definition:</b> logger.cpp:28</div></div>
+<div class="ttc" id="aclassLogger_html_acb668a9e186a25fbaad2e4af6d1ed00a"><div class="ttname"><a href="classLogger.html#acb668a9e186a25fbaad2e4af6d1ed00a">Logger::~Logger</a></div><div class="ttdeci">~Logger()</div><div class="ttdoc">Destrutor da classe Logger.</div><div class="ttdef"><b>Definition:</b> logger.cpp:40</div></div>
+<div class="ttc" id="aclassLogger_html_acebb37f5538780e6c14f13de6ec497bc"><div class="ttname"><a href="classLogger.html#acebb37f5538780e6c14f13de6ec497bc">Logger::getInstance</a></div><div class="ttdeci">static Logger &amp; getInstance()</div><div class="ttdoc">Pegue a instância do Logger.</div><div class="ttdef"><b>Definition:</b> logger.cpp:19</div></div>
+<div class="ttc" id="aclassLogger_html_add0f34d4c753c86af8074840a72366b3"><div class="ttname"><a href="classLogger.html#add0f34d4c753c86af8074840a72366b3">Logger::Logger</a></div><div class="ttdeci">Logger(const Logger &amp;)=delete</div><div class="ttdoc">Impossibilita a construção de uma instância de Logger.</div></div>
+<div class="ttc" id="alogger_8hpp_html_a95c3aacd1944ae92017653ce77a369f4"><div class="ttname"><a href="logger_8hpp.html#a95c3aacd1944ae92017653ce77a369f4">DEFAULT_LOG_LEVEL</a></div><div class="ttdeci">constexpr LogLevel DEFAULT_LOG_LEVEL</div><div class="ttdoc">Define o nível de log padrão da aplicação.</div><div class="ttdef"><b>Definition:</b> logger.hpp:20</div></div>
+<div class="ttc" id="alogger_8hpp_html_aca1fd1d8935433e6ba2e3918214e07f9"><div class="ttname"><a href="logger_8hpp.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a></div><div class="ttdeci">LogLevel</div><div class="ttdoc">Os níveis de log da aplicação.</div><div class="ttdef"><b>Definition:</b> logger.hpp:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c647613bd4231a608201612dac91c27a.html">logs</a></li><li class="navelem"><a class="el" href="logger_8hpp.html">logger.hpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+  </ul>
+</div>
+</body>
+</html>

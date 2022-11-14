@@ -1,0 +1,4 @@
+<map id="Graph::setAlgorithm" name="Graph::setAlgorithm">
+<area shape="rect" id="node1" title="Atualiza o algoritmo a ser executado." alt="" coords="5,29,144,55"/>
+<area shape="rect" id="node2" href="$classGraph.html#ad1c79f602da7a17d624293b185ea28f2" title="Verifica se o caractere passado é um algoritmo válido." alt="" coords="192,29,351,55"/>
+</map>

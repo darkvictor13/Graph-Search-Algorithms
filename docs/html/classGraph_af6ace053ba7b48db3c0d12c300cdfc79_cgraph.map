@@ -1,0 +1,5 @@
+<map id="Graph::runAlgorithm" name="Graph::runAlgorithm">
+<area shape="rect" id="node1" title="Executa um algoritmo de busca no grafo." alt="" coords="5,31,144,56"/>
+<area shape="rect" id="node2" href="$classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9" title="Executa o algoritmo de busca A*." alt="" coords="192,5,291,31"/>
+<area shape="rect" id="node3" href="$classGraph.html#add885e1212ad6274c4a51cae9daba8bf" title="algoritmo a ser executado" alt="" coords="196,55,287,80"/>
+</map>
