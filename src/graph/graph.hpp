@@ -18,6 +18,8 @@ enum class Algorithms : char {
  * @brief Classe que representa um grafo.
  */
 class Graph {
+        friend class InputFileParser;
+
     private:
         /**
          * @brief Nós do grafo, mapeados pelo nome do nó a sua lista de
@@ -54,19 +56,6 @@ class Graph {
         Graph() noexcept;
         Graph(const Graph& other) noexcept;
         Graph(Graph&& other) noexcept;
-
-        /**
-         * @brief Atualiza o nó inicial do grafo.
-         *
-         * @param start_node o novo nó inicial.
-         */
-        void setStartNode(const std::string& start_node);
-        /**
-         * @brief Atualiza o nó final do grafo.
-         *
-         * @param end_node o novo nó final.
-         */
-        void setEndNode(const std::string& end_node);
 
         /**
          * @brief Verifica se o caractere passado é um algoritmo válido.

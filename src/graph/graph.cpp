@@ -43,14 +43,6 @@ Graph::Graph(Graph&& other) noexcept
     DEBUG_LOG("Move constructor");
 }
 
-void Graph::setStartNode(const std::string& start_node) {
-    _start_node = start_node;
-}
-
-void Graph::setEndNode(const std::string& end_node) {
-    _end_node = end_node;
-}
-
 bool Graph::isValidAlgorithm(const char algorithm) const {
     return algorithm >= static_cast<char>(Algorithms::ALGORITHM_A_STAR) &&
            algorithm < static_cast<char>(Algorithms::ALGORITHM_INVALID);

@@ -9,5 +9,8 @@ class AdjacencyNode {
 
     public:
         AdjacencyNode();
+        AdjacencyNode(const std::string& id, int16_t weight);
+        AdjacencyNode(const AdjacencyNode& other);
+        AdjacencyNode(AdjacencyNode&& other);
         ~AdjacencyNode();
 };

@@ -22,7 +22,7 @@ Graph InputFileParser::parse() {
 
     Graph graph;
     std::string line;
-    // line.reserve(64);
+    line.reserve(64);
     while (!_in.eof()) {
         // get the line and save in line
         std::getline(_in, line);
@@ -30,20 +30,31 @@ Graph InputFileParser::parse() {
             continue;
         }
 
+        // TODO: pensar em um jeito de first_word e arguments não alocarem
+        // memória, talvez usando string_view
         const auto first_parenthesis = line.find('(');
-        // the first word is the beginning of the line to the first parenthesis
-        const std::string_view first_word = line.substr(0, first_parenthesis);
-        const auto arguments = std::move(line.substr(
+        const auto first_word = line.substr(0, first_parenthesis);
+        const auto arguments = line.substr(
             first_parenthesis + 1,
-            line.find(')', first_parenthesis + 2) - first_parenthesis - 1));
+            line.find(')', first_parenthesis + 2) - first_parenthesis - 1);
 
-        std::cout << "first_word: " << first_word << '\n';
         DEBUG_LOG(arguments.c_str());
+        DEBUG_LOG(first_word.c_str());
 
         if (first_word == "ilha_inicial") {
-            graph.setStartNode(arguments);
+            graph._start_node = std::move(arguments);
         } else if (first_word == "ilha_final") {
-            graph.setEndNode(arguments);
+            graph._end_node = std::move(arguments);
+        } else if (first_word == "ponte") {
+            const auto first_comma = arguments.find(',');
+            const auto second_comma = arguments.find(',', first_comma + 1);
+
+            const auto start_node = arguments.substr(0, first_comma);
+            const auto end_node = arguments.substr(
+                first_comma + 1, second_comma - first_comma - 1);
+            const auto weight = std::stoi(arguments.substr(second_comma + 1));
+
+            graph._nodes[start_node].emplace_back(end_node, weight);
         }
     }
 
@@ -52,4 +63,5 @@ Graph InputFileParser::parse() {
 
 InputFileParser::~InputFileParser() {
     DEBUG_LOG("Destrutor");
+    _in.close();
 }
