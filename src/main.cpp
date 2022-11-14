@@ -18,7 +18,6 @@
  * @mainpage Documentação do projeto
  *
  * @section intro_sec Introdução
- * Colocar aqui uma breve descrição do projeto.
  *
  * @section uso_sec Como usar
  *  Para usar o programa, basta executar o comando:
