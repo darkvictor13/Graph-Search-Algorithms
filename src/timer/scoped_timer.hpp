@@ -9,6 +9,14 @@
 typedef std::function<void(const char* scope_name, const char* formatted_time)>
     LogFunction;
 
+#define DEFAULT_TIMER                                              \
+    ScopedTimer __timer(                                           \
+        [](const char* scope_name, const char* formatted_time) {   \
+            char buffer[256];                                      \
+            sprintf(buffer, "%s: %s", scope_name, formatted_time); \
+            DEBUG_LOG(buffer);                                     \
+        })
+
 class ScopedTimer {
     private:
         LogFunction _log_function;

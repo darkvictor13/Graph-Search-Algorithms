@@ -142,15 +142,6 @@ int main(int argc, const char* const* argv) {
                 << "Data: " << getFormattedDate() << "\n"
                 << "Hora: " << getFormattedTime() << "\n";
 
-    {
-        char buffer[64];
-        ScopedTimer t([](const char* scope, const char* time) {
-            FileLogger::getInstance() << scope << ": " << time << "\n";
-        });
-        // wait 1.1 second
-        std::this_thread::sleep_for(std::chrono::milliseconds(1100));
-    }
-
     // analisando argv[3]
     arg = argc > 3 ? argv[3] : "";
     char algorithm;

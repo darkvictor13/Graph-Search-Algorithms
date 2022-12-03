@@ -3,7 +3,25 @@
 #include <functional>
 #include <unordered_map>
 
+#include "../logs/file_logger.hpp"
 #include "../logs/log_macros.hpp"
+#include "../timer/scoped_timer.hpp"
+
+size_t Graph::existEdge(const std::string& start_node,
+                        const std::string& end_node) const noexcept {
+    try {
+        const auto& vet = _nodes.at(start_node);
+        for (size_t i = 0; i < vet.size(); i++) {
+            if (vet[i]._id == end_node) {
+                return i;
+            }
+        }
+    } catch (const std::exception& e) {
+        return -1;
+    }
+
+    return -1;
+}
 
 std::vector<std::string> Graph::BFS() {
     DEBUG_LOG("Iniciando BFS");
@@ -61,6 +79,11 @@ void Graph::setAlgorithm(const Algorithms algorithm) {
 }
 
 std::vector<std::string> Graph::runAlgorithm() {
+    ScopedTimer t([](const char* scope, const char* time) {
+        FileLogger::getInstance()
+            << "Execução do algoritmo demorou: " << time << "\n";
+    });
+
     if (_algorithm == Algorithms::ALGORITHM_A_STAR) {
         return AStar();
     }

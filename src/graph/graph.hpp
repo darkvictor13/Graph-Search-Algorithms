@@ -57,6 +57,9 @@ class Graph {
         Graph(const Graph& other) noexcept;
         Graph(Graph&& other) noexcept;
 
+        size_t existEdge(const std::string& start_node,
+                         const std::string& end_node) const noexcept;
+
         /**
          * @brief Verifica se o caractere passado é um algoritmo válido.
          *
