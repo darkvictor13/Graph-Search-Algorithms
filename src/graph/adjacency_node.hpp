@@ -9,8 +9,23 @@ class AdjacencyNode {
         friend class InputFileParser;
 
     private:
+        /**
+         * @brief O identificador do nó que é o destino da aresta.
+         */
         std::string _id;
-        int16_t _weight, _heuristic;
+        /**
+         * @brief O peso da aresta.
+         */
+        int16_t _weight;
+        /**
+         * @brief O Valor em linha reta do nó origem.
+         */
+        int16_t _heuristic;
+        /**
+         * @brief O estado do nó.
+         *
+         * Se possui um valor de peso ou heurístico.
+         */
         NodeState _state;
 
     public:

@@ -1,0 +1,4 @@
+<map id="FileLogger::getInstance" name="FileLogger::getInstance">
+<area shape="rect" id="node1" title="Pegue a instância do FileLogger." coords="192,5,351,31"/>
+<area shape="rect" id="node2" href="$classGraph.html#af6ace053ba7b48db3c0d12c300cdfc79" title="Executa um algoritmo de busca no grafo." coords="5,5,144,31"/>
+</map>

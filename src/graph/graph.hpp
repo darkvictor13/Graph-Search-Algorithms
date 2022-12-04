@@ -14,9 +14,6 @@ enum class Algorithms : char {
     ALGORITHM_INVALID
 };
 
-/**
- * @brief Classe que representa um grafo.
- */
 class Graph {
         friend class InputFileParser;
 
@@ -27,9 +24,18 @@ class Graph {
          */
         std::unordered_map<std::string, std::vector<AdjacencyNode>> _nodes;
 
-        std::string _start_node;  /// nó inicial utilizado no algoritmo
-        std::string _end_node;    /// nó final utilizado no algoritmo
-        Algorithms _algorithm;    /// algoritmo a ser executado
+        /**
+         * @brief nó inicial utilizado no algoritmo
+         */
+        std::string _start_node;
+        /**
+         * @brief nó final utilizado no algoritmo
+         */
+        std::string _end_node;
+        /**
+         * @brief algoritmo a ser executado
+         */
+        Algorithms _algorithm;
 
     private:
         /**
@@ -57,6 +63,18 @@ class Graph {
         Graph(const Graph& other) noexcept;
         Graph(Graph&& other) noexcept;
 
+        /**
+         * @brief Informa caso exista um caminho entre o nó inicial e o nó
+         * final.
+         *
+         * Somente verifica na direção inicial -> final, e não na direção final
+         * -> inicial.
+         *
+         * @param start_node Nó inicial.
+         * @param end_node Nó final.
+         * @return size_t índice da aresta que conecta os dois nós na lista de
+         * adjacência do nó inicial, ou -1 caso não exista.
+         */
         size_t existEdge(const std::string& start_node,
                          const std::string& end_node) const noexcept;
 

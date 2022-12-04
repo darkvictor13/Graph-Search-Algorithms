@@ -94,21 +94,17 @@ $(document).ready(function(){initNavTree('classGraph.html',''); initResizable();
 <a href="#pub-methods">Membros Públicos</a> &#124;
 <a href="#pri-methods">Membros Privados</a> &#124;
 <a href="#pri-attribs">Atributos Privados</a> &#124;
+<a href="#friends">Amigas</a> &#124;
 <a href="classGraph-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle"><div class="title">Referência da Classe Graph</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Classe que representa um grafo.  
- <a href="classGraph.html#details">Mais...</a></p>
-
-<p><code>#include &lt;<a class="el" href="graph_8hpp_source.html">graph.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de colaboração para Graph:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGraph__coll__graph.png" border="0" usemap="#aGraph_coll__map" alt="Collaboration graph"/></div>
 <map name="aGraph_coll__map" id="aGraph_coll__map">
-<area shape="rect" title="Classe que representa um grafo." alt="" coords="5,5,140,280"/>
+<area shape="rect" title=" " coords="5,5,140,265"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -124,12 +120,9 @@ Membros Públicos</h2></td></tr>
 <tr class="memitem:a61af63f3d00e297e91772b482de3dc74"><td class="memItemLeft" align="right" valign="top"><a id="a61af63f3d00e297e91772b482de3dc74" name="a61af63f3d00e297e91772b482de3dc74"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Graph</b> (<a class="el" href="classGraph.html">Graph</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="separator:a61af63f3d00e297e91772b482de3dc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a387ce92d8e597a917a52fb98748de471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a387ce92d8e597a917a52fb98748de471">setStartNode</a> (const std::string &amp;start_node)</td></tr>
-<tr class="memdesc:a387ce92d8e597a917a52fb98748de471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza o nó inicial do grafo.  <a href="classGraph.html#a387ce92d8e597a917a52fb98748de471">Mais...</a><br /></td></tr>
-<tr class="separator:a387ce92d8e597a917a52fb98748de471"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3376d2018d4bfcf52022b3918c9ad0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#ab3376d2018d4bfcf52022b3918c9ad0b">setEndNode</a> (const std::string &amp;end_node)</td></tr>
-<tr class="memdesc:ab3376d2018d4bfcf52022b3918c9ad0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza o nó final do grafo.  <a href="classGraph.html#ab3376d2018d4bfcf52022b3918c9ad0b">Mais...</a><br /></td></tr>
-<tr class="separator:ab3376d2018d4bfcf52022b3918c9ad0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a273b4044932fc39b1de29ab5bf78be57"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a273b4044932fc39b1de29ab5bf78be57">existEdge</a> (const std::string &amp;start_node, const std::string &amp;end_node) const noexcept</td></tr>
+<tr class="memdesc:a273b4044932fc39b1de29ab5bf78be57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa caso exista um caminho entre o nó inicial e o nó final.  <a href="classGraph.html#a273b4044932fc39b1de29ab5bf78be57">Mais...</a><br /></td></tr>
+<tr class="separator:a273b4044932fc39b1de29ab5bf78be57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1c79f602da7a17d624293b185ea28f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#ad1c79f602da7a17d624293b185ea28f2">isValidAlgorithm</a> (const char algorithm) const</td></tr>
 <tr class="memdesc:ad1c79f602da7a17d624293b185ea28f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o caractere passado é um algoritmo válido.  <a href="classGraph.html#ad1c79f602da7a17d624293b185ea28f2">Mais...</a><br /></td></tr>
 <tr class="separator:ad1c79f602da7a17d624293b185ea28f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,7 +143,7 @@ Membros Públicos</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Membros Privados</h2></td></tr>
 <tr class="memitem:add885e1212ad6274c4a51cae9daba8bf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#add885e1212ad6274c4a51cae9daba8bf">BFS</a> ()</td></tr>
-<tr class="memdesc:add885e1212ad6274c4a51cae9daba8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">algoritmo a ser executado  <a href="classGraph.html#add885e1212ad6274c4a51cae9daba8bf">Mais...</a><br /></td></tr>
+<tr class="memdesc:add885e1212ad6274c4a51cae9daba8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa o algoritmo de busca em largura.  <a href="classGraph.html#add885e1212ad6274c4a51cae9daba8bf">Mais...</a><br /></td></tr>
 <tr class="separator:add885e1212ad6274c4a51cae9daba8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a848c9e407fd4ee35b62a3a4f3115d7f9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9">AStar</a> ()</td></tr>
 <tr class="memdesc:a848c9e407fd4ee35b62a3a4f3115d7f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa o algoritmo de busca A*.  <a href="classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9">Mais...</a><br /></td></tr>
@@ -164,19 +157,24 @@ std::unordered_map&lt; std::string, std::vector&lt; <a class="el" href="classAdj
 <tr class="separator:a5ff4be5e6c1122466dc6e1a3fb93c9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8edf633c5f1005fee991d8e23a9a65c"><td class="memItemLeft" align="right" valign="top"><a id="ac8edf633c5f1005fee991d8e23a9a65c" name="ac8edf633c5f1005fee991d8e23a9a65c"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_start_node</b></td></tr>
+<tr class="memdesc:ac8edf633c5f1005fee991d8e23a9a65c"><td class="mdescLeft">&#160;</td><td class="mdescRight">nó inicial utilizado no algoritmo <br /></td></tr>
 <tr class="separator:ac8edf633c5f1005fee991d8e23a9a65c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a969b57c50d2c52d8bcbd616ebc675680"><td class="memItemLeft" align="right" valign="top"><a id="a969b57c50d2c52d8bcbd616ebc675680" name="a969b57c50d2c52d8bcbd616ebc675680"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_end_node</b></td></tr>
-<tr class="memdesc:a969b57c50d2c52d8bcbd616ebc675680"><td class="mdescLeft">&#160;</td><td class="mdescRight">nó inicial utilizado no algoritmo <br /></td></tr>
+<tr class="memdesc:a969b57c50d2c52d8bcbd616ebc675680"><td class="mdescLeft">&#160;</td><td class="mdescRight">nó final utilizado no algoritmo <br /></td></tr>
 <tr class="separator:a969b57c50d2c52d8bcbd616ebc675680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99a4b0f8e08731da10b33ca46ea65071"><td class="memItemLeft" align="right" valign="top"><a id="a99a4b0f8e08731da10b33ca46ea65071" name="a99a4b0f8e08731da10b33ca46ea65071"></a>
 Algorithms&#160;</td><td class="memItemRight" valign="bottom"><b>_algorithm</b></td></tr>
-<tr class="memdesc:a99a4b0f8e08731da10b33ca46ea65071"><td class="mdescLeft">&#160;</td><td class="mdescRight">nó final utilizado no algoritmo <br /></td></tr>
+<tr class="memdesc:a99a4b0f8e08731da10b33ca46ea65071"><td class="mdescLeft">&#160;</td><td class="mdescRight">algoritmo a ser executado <br /></td></tr>
 <tr class="separator:a99a4b0f8e08731da10b33ca46ea65071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Amigas</h2></td></tr>
+<tr class="memitem:a4f4fb8b957a22e9f1542f22e7201908b"><td class="memItemLeft" align="right" valign="top"><a id="a4f4fb8b957a22e9f1542f22e7201908b" name="a4f4fb8b957a22e9f1542f22e7201908b"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>InputFileParser</b></td></tr>
+<tr class="separator:a4f4fb8b957a22e9f1542f22e7201908b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p >Classe que representa um grafo. </p>
-</div><h2 class="groupheader">Funções membros</h2>
+<h2 class="groupheader">Funções membros</h2>
 <a id="a848c9e407fd4ee35b62a3a4f3115d7f9" name="a848c9e407fd4ee35b62a3a4f3115d7f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a848c9e407fd4ee35b62a3a4f3115d7f9">&#9670;&#160;</a></span>AStar()</h2>
 
@@ -238,8 +236,7 @@ Esse é o diagrama das funções que utilizam essa função:</div>
 </table>
 </div><div class="memdoc">
 
-<p>algoritmo a ser executado </p>
-<p >Executa o algoritmo de busca em largura.</p>
+<p>Executa o algoritmo de busca em largura. </p>
 <p >TODO: Colocar mais informações sobre o algoritmo.</p>
 <dl class="section return"><dt>Retorna</dt><dd>std::vector&lt;std::string&gt; Lista de nós que formam o caminho </dd></dl>
 <div class="dynheader">
@@ -247,8 +244,64 @@ Esse é o diagrama das funções que utilizam essa função:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGraph_add885e1212ad6274c4a51cae9daba8bf_icgraph.png" border="0" usemap="#aclassGraph_add885e1212ad6274c4a51cae9daba8bf_icgraph" alt=""/></div>
 <map name="aclassGraph_add885e1212ad6274c4a51cae9daba8bf_icgraph" id="aclassGraph_add885e1212ad6274c4a51cae9daba8bf_icgraph">
-<area shape="rect" title="algoritmo a ser executado" alt="" coords="192,5,283,31"/>
-<area shape="rect" href="classGraph.html#af6ace053ba7b48db3c0d12c300cdfc79" title="Executa um algoritmo de busca no grafo." alt="" coords="5,5,144,31"/>
+<area shape="rect" title="Executa o algoritmo de busca em largura." coords="192,5,283,31"/>
+<area shape="rect" href="classGraph.html#af6ace053ba7b48db3c0d12c300cdfc79" title="Executa um algoritmo de busca no grafo." coords="5,5,144,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a273b4044932fc39b1de29ab5bf78be57" name="a273b4044932fc39b1de29ab5bf78be57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a273b4044932fc39b1de29ab5bf78be57">&#9670;&#160;</a></span>existEdge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Graph::existEdge </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>start_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>end_node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Informa caso exista um caminho entre o nó inicial e o nó final. </p>
+<p >Somente verifica na direção inicial -&gt; final, e não na direção final -&gt; inicial.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_node</td><td>Nó inicial. </td></tr>
+    <tr><td class="paramname">end_node</td><td>Nó final. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>size_t índice da aresta que conecta os dois nós na lista de adjacência do nó inicial, ou -1 caso não exista. </dd></dl>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGraph_a273b4044932fc39b1de29ab5bf78be57_icgraph.png" border="0" usemap="#aclassGraph_a273b4044932fc39b1de29ab5bf78be57_icgraph" alt=""/></div>
+<map name="aclassGraph_a273b4044932fc39b1de29ab5bf78be57_icgraph" id="aclassGraph_a273b4044932fc39b1de29ab5bf78be57_icgraph">
+<area shape="rect" title="Informa caso exista um caminho entre o nó inicial e o nó final." coords="204,5,327,31"/>
+<area shape="rect" href="classInputFileParser.html#afd2b0e6849e33fb1fdaf94b2992bd7ac" title="Analisa o arquivo de entrada." coords="5,5,156,31"/>
 </map>
 </div>
 
@@ -315,9 +368,10 @@ Este é o diagrama das funções utilizadas por essa função:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGraph_af6ace053ba7b48db3c0d12c300cdfc79_cgraph.png" border="0" usemap="#aclassGraph_af6ace053ba7b48db3c0d12c300cdfc79_cgraph" alt=""/></div>
 <map name="aclassGraph_af6ace053ba7b48db3c0d12c300cdfc79_cgraph" id="aclassGraph_af6ace053ba7b48db3c0d12c300cdfc79_cgraph">
-<area shape="rect" title="Executa um algoritmo de busca no grafo." alt="" coords="5,31,144,56"/>
-<area shape="rect" href="classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9" title="Executa o algoritmo de busca A*." alt="" coords="192,5,291,31"/>
-<area shape="rect" href="classGraph.html#add885e1212ad6274c4a51cae9daba8bf" title="algoritmo a ser executado" alt="" coords="196,55,287,80"/>
+<area shape="rect" title="Executa um algoritmo de busca no grafo." coords="5,55,144,80"/>
+<area shape="rect" href="classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9" title="Executa o algoritmo de busca A*." coords="222,5,321,31"/>
+<area shape="rect" href="classGraph.html#add885e1212ad6274c4a51cae9daba8bf" title="Executa o algoritmo de busca em largura." coords="226,55,317,80"/>
+<area shape="rect" href="classFileLogger.html#aa0e8cf36d1d1e0d6336b53402716794f" title="Pegue a instância do FileLogger." coords="192,104,351,129"/>
 </map>
 </div>
 
@@ -389,58 +443,6 @@ Esse é o diagrama das funções que utilizam essa função:</div>
 <area shape="rect" title="Atualiza o algoritmo a ser executado." alt="" coords="5,29,144,55"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="ab3376d2018d4bfcf52022b3918c9ad0b" name="ab3376d2018d4bfcf52022b3918c9ad0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3376d2018d4bfcf52022b3918c9ad0b">&#9670;&#160;</a></span>setEndNode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Graph::setEndNode </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>end_node</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Atualiza o nó final do grafo. </p>
-<dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">end_node</td><td>o novo nó final. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a387ce92d8e597a917a52fb98748de471" name="a387ce92d8e597a917a52fb98748de471"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a387ce92d8e597a917a52fb98748de471">&#9670;&#160;</a></span>setStartNode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Graph::setStartNode </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>start_node</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Atualiza o nó inicial do grafo. </p>
-<dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">start_node</td><td>o novo nó inicial. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

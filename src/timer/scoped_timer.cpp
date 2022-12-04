@@ -9,10 +9,12 @@ using namespace std::chrono_literals;
 constexpr const auto one_sec = 1s;
 
 std::string formatNanoseconds(const nanoseconds& ns) {
+    const std::string ns_str =
+        std::to_string((ns.count() % 1000000000) / 1000000000.0);
     return std::to_string(duration_cast<hours>(ns).count()) + ":" +
            std::to_string(duration_cast<minutes>(ns).count() % 60) + ":" +
            std::to_string(duration_cast<seconds>(ns).count() % 3600) + "." +
-           std::to_string((ns.count() % 1000000000) / 1000000000.0) + "s";
+           (ns_str.c_str() + 2);
 }
 
 ScopedTimer::ScopedTimer(LogFunction log_function, const char* scope_name)

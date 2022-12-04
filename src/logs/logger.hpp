@@ -1,8 +1,3 @@
-/**
- * @file logger.hpp
- * @brief Define a classe Logger e as macros de log
- * @version 0.1
- */
 #pragma once
 
 #include <source_location>
@@ -19,11 +14,6 @@ enum LogLevel { DEBUG, INFO, WARNING, ERROR, FATAL };
  */
 constexpr LogLevel DEFAULT_LOG_LEVEL = LogLevel::DEBUG;
 
-/**
- * @brief A classe Logger.
- *
- * Uma classe singleton que imprime mensagens de log no console.
- */
 class Logger {
     private:
         /**

@@ -110,15 +110,20 @@ Diagrama de colaboração para FileLogger:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a6a688e3b5f1f047798d44a869d2e7c16"><td class="memItemLeft" align="right" valign="top"><a id="a6a688e3b5f1f047798d44a869d2e7c16" name="a6a688e3b5f1f047798d44a869d2e7c16"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>build</b> (const char *path)</td></tr>
+<tr class="memitem:a6a688e3b5f1f047798d44a869d2e7c16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileLogger.html#a6a688e3b5f1f047798d44a869d2e7c16">build</a> (const char *path)</td></tr>
+<tr class="memdesc:a6a688e3b5f1f047798d44a869d2e7c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa a classe <a class="el" href="classFileLogger.html">FileLogger</a>.  <a href="classFileLogger.html#a6a688e3b5f1f047798d44a869d2e7c16">Mais...</a><br /></td></tr>
 <tr class="separator:a6a688e3b5f1f047798d44a869d2e7c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a551cab09a0030895372a08e22e387b02"><td class="memItemLeft" align="right" valign="top"><a id="a551cab09a0030895372a08e22e387b02" name="a551cab09a0030895372a08e22e387b02"></a>
-<a class="el" href="classFileLogger.html">FileLogger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (const std::string_view message)</td></tr>
+<tr class="memitem:a551cab09a0030895372a08e22e387b02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFileLogger.html">FileLogger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileLogger.html#a551cab09a0030895372a08e22e387b02">operator&lt;&lt;</a> (const std::string_view message)</td></tr>
+<tr class="memdesc:a551cab09a0030895372a08e22e387b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escreve uma mensagem no arquivo de log.  <a href="classFileLogger.html#a551cab09a0030895372a08e22e387b02">Mais...</a><br /></td></tr>
 <tr class="separator:a551cab09a0030895372a08e22e387b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a030ce6ca48cf5361ba38655945c56cb3"><td class="memItemLeft" align="right" valign="top"><a id="a030ce6ca48cf5361ba38655945c56cb3" name="a030ce6ca48cf5361ba38655945c56cb3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></tr>
+<tr class="memdesc:a030ce6ca48cf5361ba38655945c56cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fecha o arquivo de log e garante que o conteúdo seja escrito. <br /></td></tr>
 <tr class="separator:a030ce6ca48cf5361ba38655945c56cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab08af44f2de3fe1b51158132f9a399dd"><td class="memItemLeft" align="right" valign="top"><a id="ab08af44f2de3fe1b51158132f9a399dd" name="ab08af44f2de3fe1b51158132f9a399dd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~FileLogger</b> ()</td></tr>
+<tr class="memdesc:ab08af44f2de3fe1b51158132f9a399dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor padrão. <br /></td></tr>
+<tr class="separator:ab08af44f2de3fe1b51158132f9a399dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Membros Públicos Estáticos</h2></td></tr>
@@ -173,6 +178,33 @@ std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><b>_out</b></td
 </div>
 </div>
 <h2 class="groupheader">Funções membros</h2>
+<a id="a6a688e3b5f1f047798d44a869d2e7c16" name="a6a688e3b5f1f047798d44a869d2e7c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a688e3b5f1f047798d44a869d2e7c16">&#9670;&#160;</a></span>build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FileLogger::build </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa a classe <a class="el" href="classFileLogger.html">FileLogger</a>. </p>
+<p >Tentará abrir o arquivo de log.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>caminho para o arquivo de log. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa0e8cf36d1d1e0d6336b53402716794f" name="aa0e8cf36d1d1e0d6336b53402716794f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa0e8cf36d1d1e0d6336b53402716794f">&#9670;&#160;</a></span>getInstance()</h2>
 
@@ -198,6 +230,42 @@ std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><b>_out</b></td
 
 <p>Pegue a instância do <a class="el" href="classFileLogger.html">FileLogger</a>. </p>
 <dl class="section return"><dt>Retorna</dt><dd><a class="el" href="classFileLogger.html">FileLogger</a>&amp; instância do <a class="el" href="classFileLogger.html">FileLogger</a>. </dd></dl>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classFileLogger_aa0e8cf36d1d1e0d6336b53402716794f_icgraph.png" border="0" usemap="#aclassFileLogger_aa0e8cf36d1d1e0d6336b53402716794f_icgraph" alt=""/></div>
+<map name="aclassFileLogger_aa0e8cf36d1d1e0d6336b53402716794f_icgraph" id="aclassFileLogger_aa0e8cf36d1d1e0d6336b53402716794f_icgraph">
+<area shape="rect" title="Pegue a instância do FileLogger." coords="192,5,351,31"/>
+<area shape="rect" href="classGraph.html#af6ace053ba7b48db3c0d12c300cdfc79" title="Executa um algoritmo de busca no grafo." coords="5,5,144,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a551cab09a0030895372a08e22e387b02" name="a551cab09a0030895372a08e22e387b02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a551cab09a0030895372a08e22e387b02">&#9670;&#160;</a></span>operator&lt;&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFileLogger.html">FileLogger</a> &amp; FileLogger::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Escreve uma mensagem no arquivo de log. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>mensagem a ser escrita. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="classFileLogger.html">FileLogger</a>&amp; referência para o próprio <a class="el" href="classFileLogger.html">FileLogger</a>. </dd></dl>
 
 </div>
 </div>

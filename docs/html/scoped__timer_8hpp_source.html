@@ -101,22 +101,34 @@ $(document).ready(function(){initNavTree('scoped__timer_8hpp_source.html',''); i
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../logs/date_time.hpp&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">const</span> <span class="keywordtype">char</span>* scope_name, <span class="keyword">const</span> <span class="keywordtype">char</span>* formatted_time)&gt;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    LogFunction;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classScopedTimer.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="classScopedTimer.html">ScopedTimer</a> {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        LogFunction _log_function;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* _scope_name;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        std::chrono::high_resolution_clock::time_point _start;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_class" href="classScopedTimer.html">ScopedTimer</a>(LogFunction log_function,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                    <span class="keyword">const</span> <span class="keywordtype">char</span>* scope_name =</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                        std::source_location::current().function_name());</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_class" href="classScopedTimer.html">~ScopedTimer</a>();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
-<div class="ttc" id="aclassScopedTimer_html"><div class="ttname"><a href="classScopedTimer.html">ScopedTimer</a></div><div class="ttdef"><b>Definition:</b> scoped_timer.hpp:12</div></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">const</span> <span class="keywordtype">char</span>* scope_name, <span class="keyword">const</span> <span class="keywordtype">char</span>* formatted_time)&gt;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    LogFunction;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define DEFAULT_TIMER                                              \</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">    ScopedTimer __timer(                                           \</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">        [](const char* scope_name, const char* formatted_time) {   \</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">            char buffer[256];                                      \</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">            sprintf(buffer, &quot;%s: %s&quot;</span>, scope_name, formatted_time); \</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            DEBUG_LOG(buffer);                                     \</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        })</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classScopedTimer.html">   27</a></span><span class="keyword">class </span><a class="code hl_class" href="classScopedTimer.html">ScopedTimer</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classScopedTimer.html#a3e2dc7c73f0980075486957f9fb5da31">   32</a></span>        LogFunction <a class="code hl_variable" href="classScopedTimer.html#a3e2dc7c73f0980075486957f9fb5da31">_log_function</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classScopedTimer.html#a6a510c640a2689453767566749f9d262">   36</a></span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="classScopedTimer.html#a6a510c640a2689453767566749f9d262">_scope_name</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classScopedTimer.html#aadd558f657395271d4b0f56992e668b1">   40</a></span>        std::chrono::high_resolution_clock::time_point <a class="code hl_variable" href="classScopedTimer.html#aadd558f657395271d4b0f56992e668b1">_start</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_class" href="classScopedTimer.html">ScopedTimer</a>(LogFunction log_function,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                    <span class="keyword">const</span> <span class="keywordtype">char</span>* scope_name =</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                        std::source_location::current().function_name());</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_function" href="classScopedTimer.html#a338ced0c8c39fe3d3e89e1b09d29f589">~ScopedTimer</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+<div class="ttc" id="aclassScopedTimer_html"><div class="ttname"><a href="classScopedTimer.html">ScopedTimer</a></div><div class="ttdef"><b>Definition:</b> scoped_timer.hpp:27</div></div>
+<div class="ttc" id="aclassScopedTimer_html_a338ced0c8c39fe3d3e89e1b09d29f589"><div class="ttname"><a href="classScopedTimer.html#a338ced0c8c39fe3d3e89e1b09d29f589">ScopedTimer::~ScopedTimer</a></div><div class="ttdeci">~ScopedTimer()</div><div class="ttdoc">Destrutor da classe ScopedTimer.</div><div class="ttdef"><b>Definition:</b> scoped_timer.cpp:26</div></div>
+<div class="ttc" id="aclassScopedTimer_html_a3e2dc7c73f0980075486957f9fb5da31"><div class="ttname"><a href="classScopedTimer.html#a3e2dc7c73f0980075486957f9fb5da31">ScopedTimer::_log_function</a></div><div class="ttdeci">LogFunction _log_function</div><div class="ttdoc">Função que será chamada quando o timer for destruído.</div><div class="ttdef"><b>Definition:</b> scoped_timer.hpp:32</div></div>
+<div class="ttc" id="aclassScopedTimer_html_a6a510c640a2689453767566749f9d262"><div class="ttname"><a href="classScopedTimer.html#a6a510c640a2689453767566749f9d262">ScopedTimer::_scope_name</a></div><div class="ttdeci">const char * _scope_name</div><div class="ttdoc">Nome do escopo que está sendo medido.</div><div class="ttdef"><b>Definition:</b> scoped_timer.hpp:36</div></div>
+<div class="ttc" id="aclassScopedTimer_html_aadd558f657395271d4b0f56992e668b1"><div class="ttname"><a href="classScopedTimer.html#aadd558f657395271d4b0f56992e668b1">ScopedTimer::_start</a></div><div class="ttdeci">std::chrono::high_resolution_clock::time_point _start</div><div class="ttdoc">Momento em que o timer foi criado.</div><div class="ttdef"><b>Definition:</b> scoped_timer.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

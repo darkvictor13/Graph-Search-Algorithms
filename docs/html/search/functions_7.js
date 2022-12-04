@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['runalgorithm_0',['runAlgorithm',['../classGraph.html#af6ace053ba7b48db3c0d12c300cdfc79',1,'Graph']]]
+  ['logger_0',['Logger',['../classLogger.html#add0f34d4c753c86af8074840a72366b3',1,'Logger::Logger(const Logger &amp;)=delete'],['../classLogger.html#abc41bfb031d896170c7675fa96a6b30c',1,'Logger::Logger()']]]
 ];

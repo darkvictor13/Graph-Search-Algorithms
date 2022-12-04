@@ -23,6 +23,13 @@ class FileLogger {
         FileLogger();
 
     public:
+        /**
+         * @brief Inicializa a classe FileLogger.
+         *
+         * Tentará abrir o arquivo de log.
+         *
+         * @param path caminho para o arquivo de log.
+         */
         void build(const char* path);
         /**
          * @brief Pegue a instância do FileLogger.
@@ -30,7 +37,19 @@ class FileLogger {
          * @return FileLogger& instância do FileLogger.
          */
         static FileLogger& getInstance();
+        /**
+         * @brief Escreve uma mensagem no arquivo de log.
+         *
+         * @param message mensagem a ser escrita.
+         * @return FileLogger& referência para o próprio FileLogger.
+         */
         FileLogger& operator<<(const std::string_view message);
+        /**
+         * @brief Fecha o arquivo de log e garante que o conteúdo seja escrito.
+         */
         void destroy();
+        /**
+         * @brief Destrutor padrão.
+         */
         ~FileLogger();
 };

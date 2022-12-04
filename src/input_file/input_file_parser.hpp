@@ -15,7 +15,22 @@ class InputFileParser {
     public:
         InputFileParser(const InputFileParser&) = delete;
 
+        /**
+         * @brief Construtor padrão.
+         *
+         * @param path O caminho do arquivo de entrada.
+         */
         InputFileParser(const std::string_view path);
+
+        /**
+         * @brief Analisa o arquivo de entrada.
+         *
+         * @return Graph O grafo gerado a partir do arquivo de entrada.
+         */
         Graph parse();
+
+        /**
+         * @brief Destrutor padrão.
+         */
         ~InputFileParser();
 };

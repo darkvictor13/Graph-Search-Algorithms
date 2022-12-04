@@ -39,12 +39,7 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Arquivos", "files.html", [
-      [ "Lista de Arquivos", "files.html", "files_dup" ],
-      [ "Membros dos Arquivos", "globals.html", [
-        [ "Todos", "globals.html", null ],
-        [ "Variáveis", "globals_vars.html", null ],
-        [ "Enumerações", "globals_enum.html", null ]
-      ] ]
+      [ "Lista de Arquivos", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['filelogger_0',['FileLogger',['../classFileLogger.html#af19950f176c9b823a28fa6b68163a35b',1,'FileLogger']]]
+  ['existedge_0',['existEdge',['../classGraph.html#a273b4044932fc39b1de29ab5bf78be57',1,'Graph']]]
 ];

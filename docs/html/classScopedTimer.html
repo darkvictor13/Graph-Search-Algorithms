@@ -108,22 +108,67 @@ Diagrama de colaboração para ScopedTimer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:aba0b94249f2638300c05b90b498861fa"><td class="memItemLeft" align="right" valign="top"><a id="aba0b94249f2638300c05b90b498861fa" name="aba0b94249f2638300c05b90b498861fa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ScopedTimer</b> (LogFunction log_function, const char *scope_name=std::source_location::current().function_name())</td></tr>
+<tr class="memitem:aba0b94249f2638300c05b90b498861fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScopedTimer.html#aba0b94249f2638300c05b90b498861fa">ScopedTimer</a> (LogFunction log_function, const char *scope_name=std::source_location::current().function_name())</td></tr>
+<tr class="memdesc:aba0b94249f2638300c05b90b498861fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="classScopedTimer.html">ScopedTimer</a>.  <a href="classScopedTimer.html#aba0b94249f2638300c05b90b498861fa">Mais...</a><br /></td></tr>
 <tr class="separator:aba0b94249f2638300c05b90b498861fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a338ced0c8c39fe3d3e89e1b09d29f589"><td class="memItemLeft" align="right" valign="top"><a id="a338ced0c8c39fe3d3e89e1b09d29f589" name="a338ced0c8c39fe3d3e89e1b09d29f589"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~ScopedTimer</b> ()</td></tr>
+<tr class="memdesc:a338ced0c8c39fe3d3e89e1b09d29f589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor da classe <a class="el" href="classScopedTimer.html">ScopedTimer</a>. <br /></td></tr>
+<tr class="separator:a338ced0c8c39fe3d3e89e1b09d29f589"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Atributos Privados</h2></td></tr>
 <tr class="memitem:a3e2dc7c73f0980075486957f9fb5da31"><td class="memItemLeft" align="right" valign="top"><a id="a3e2dc7c73f0980075486957f9fb5da31" name="a3e2dc7c73f0980075486957f9fb5da31"></a>
 LogFunction&#160;</td><td class="memItemRight" valign="bottom"><b>_log_function</b></td></tr>
+<tr class="memdesc:a3e2dc7c73f0980075486957f9fb5da31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que será chamada quando o timer for destruído. <br /></td></tr>
 <tr class="separator:a3e2dc7c73f0980075486957f9fb5da31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a510c640a2689453767566749f9d262"><td class="memItemLeft" align="right" valign="top"><a id="a6a510c640a2689453767566749f9d262" name="a6a510c640a2689453767566749f9d262"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>_scope_name</b></td></tr>
+<tr class="memdesc:a6a510c640a2689453767566749f9d262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome do escopo que está sendo medido. <br /></td></tr>
 <tr class="separator:a6a510c640a2689453767566749f9d262"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadd558f657395271d4b0f56992e668b1"><td class="memItemLeft" align="right" valign="top"><a id="aadd558f657395271d4b0f56992e668b1" name="aadd558f657395271d4b0f56992e668b1"></a>
 std::chrono::high_resolution_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><b>_start</b></td></tr>
+<tr class="memdesc:aadd558f657395271d4b0f56992e668b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Momento em que o timer foi criado. <br /></td></tr>
 <tr class="separator:aadd558f657395271d4b0f56992e668b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="aba0b94249f2638300c05b90b498861fa" name="aba0b94249f2638300c05b90b498861fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba0b94249f2638300c05b90b498861fa">&#9670;&#160;</a></span>ScopedTimer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ScopedTimer::ScopedTimer </td>
+          <td>(</td>
+          <td class="paramtype">LogFunction&#160;</td>
+          <td class="paramname"><em>log_function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>scope_name</em> = <code>std::source_location::current().function_name()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da classe <a class="el" href="classScopedTimer.html">ScopedTimer</a>. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">log_function</td><td>função que será chamada quando o timer for destruído, aceita função lambda. </td></tr>
+    <tr><td class="paramname">scope_name</td><td>nome do escopo que está sendo medido. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
 <li><a class="el" href="scoped__timer_8hpp_source.html">scoped_timer.hpp</a></li>
 <li>scoped_timer.cpp</li>

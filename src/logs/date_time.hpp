@@ -25,6 +25,8 @@ const char* getFormattedTime(
 /**
  * @brief Pega a data atual formatada.
  *
+ * Formato: DD/MM/YYYY
+ *
  * @return const char* ponteiro para a string com a data formatada.
  */
 const char* getFormattedDate();
