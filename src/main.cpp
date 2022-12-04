@@ -109,6 +109,7 @@ bool getMetricsFile(std::string& metrics_file) {
 // TODO: Separar em funções a analise de cada um dos argv
 // TODO: retirar variáveis que são temporárias para funções como o parser e ret
 int main(int argc, const char* const* argv) {
+    DEFAULT_TIMER;
     if (argc > 4) {
         FATAL_LOG("Numero de argumentos invalido");
         helpMessage();

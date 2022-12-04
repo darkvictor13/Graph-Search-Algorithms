@@ -60,23 +60,31 @@ Graph InputFileParser::parse() {
             graph._end_node = std::move(arguments);
         } else if (first_word == "ponte") {
             auto &&[start_node, end_node, weight] = parseArguments(arguments);
-            const auto index = graph.existEdge(start_node, end_node);
+            auto index = graph.existEdge(start_node, end_node);
             if (index == -1) {
                 graph._nodes[start_node].emplace_back(end_node, weight, true);
+                graph._nodes[end_node].emplace_back(start_node, weight, true);
             } else {
                 graph._nodes[start_node][index]._weight = weight;
                 graph._nodes[start_node][index]._state = NodeState::HAS_BOTH;
+
+                index = graph.existEdge(end_node, start_node);
+                graph._nodes[end_node][index]._weight = weight;
+                graph._nodes[end_node][index]._state = NodeState::HAS_BOTH;
             }
         } else if (first_word == "h") {
-            auto &&[start_node, end_node, heuristic] =
-                parseArguments(arguments);
-            const auto index = graph.existEdge(start_node, end_node);
+            auto &&[start_node, end_node, h] = parseArguments(arguments);
+            auto index = graph.existEdge(start_node, end_node);
             if (index == -1) {
-                graph._nodes[start_node].emplace_back(end_node, heuristic,
-                                                      false);
+                graph._nodes[start_node].emplace_back(end_node, h, false);
+                graph._nodes[end_node].emplace_back(start_node, h, false);
             } else {
-                graph._nodes[start_node][index]._heuristic = heuristic;
+                graph._nodes[start_node][index]._heuristic = h;
                 graph._nodes[start_node][index]._state = NodeState::HAS_BOTH;
+
+                index = graph.existEdge(end_node, start_node);
+                graph._nodes[end_node][index]._heuristic = h;
+                graph._nodes[end_node][index]._state = NodeState::HAS_BOTH;
             }
         } else {
             FATAL_LOG("File has invalid syntax");

@@ -1,11 +1,14 @@
 #include "graph.hpp"
 
 #include <functional>
+#include <queue>
 #include <unordered_map>
 
 #include "../logs/file_logger.hpp"
 #include "../logs/log_macros.hpp"
 #include "../timer/scoped_timer.hpp"
+
+enum Colors { WHITE, GRAY, BLACK };
 
 size_t Graph::existEdge(const std::string& start_node,
                         const std::string& end_node) const noexcept {
@@ -23,9 +26,55 @@ size_t Graph::existEdge(const std::string& start_node,
     return -1;
 }
 
+uint8_t getIndex(const std::string& id) {
+    static std::unordered_map<std::string, uint8_t> map;
+    if (map.find(id) == map.end()) {
+        map[id] = static_cast<uint8_t>(map.size());
+    }
+    return map[id];
+}
+
 std::vector<std::string> Graph::BFS() {
     DEBUG_LOG("Iniciando BFS");
+
     std::vector<std::string> path;
+
+    const auto graph_size = _nodes.size();
+    std::queue<std::string> queue;
+    std::string predecessors[graph_size];
+    Colors colors[graph_size];
+    int16_t distances[graph_size];
+
+    for (const auto& [id, _] : _nodes) {
+        const auto index = getIndex(id);
+        colors[index] = WHITE;
+        distances[index] = -1;
+    }
+
+    {
+        // Colocando valores obtidos da ilha inicial
+        const auto index = getIndex(_start_node);
+        colors[index] = GRAY;
+        distances[index] = 0;
+        queue.push(_start_node);
+        path.push_back(_start_node);
+    }
+
+    while (!queue.empty()) {
+        const auto& current_node = queue.front();
+        for (auto& node : _nodes[current_node]) {
+            const auto index = getIndex(node._id);
+            if (colors[index] == WHITE) {
+                colors[index] = GRAY;
+                distances[index] = distances[getIndex(current_node)] + 1;
+                predecessors[index] = current_node;
+                queue.push(node._id);
+                path.push_back(node._id);
+            }
+        }
+        queue.pop();
+        colors[getIndex(current_node)] = BLACK;
+    }
 
     return path;
 }

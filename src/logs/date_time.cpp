@@ -20,7 +20,7 @@ const char* getFormattedTime(
                                       std::localtime(&nowTime));
     buffer[size] = '.';
     const auto remaining =
-        (time.time_since_epoch() % std::chrono::seconds(1)).count();
+        (time.time_since_epoch().count() % 1000000000) / 1000000000.0;
     const std::string remaining_str = std::to_string(remaining);
     if (remaining_str.size() + size + 1 < STR_MAX_SIZE) {
         strncpy(buffer + size + 1, remaining_str.data(), remaining_str.size());
@@ -30,7 +30,9 @@ const char* getFormattedTime(
 }
 
 const char* getFormattedDate() {
-    // isso ta errado
-    // TODO: arrumar
-    return __DATE__;
+    static char buffer[STR_MAX_SIZE];
+    const time_t now = time(NULL);
+    const struct tm* t = localtime(&now);
+    std::strftime(buffer, STR_MAX_SIZE, "%d/%m/%Y", t);
+    return buffer;
 }
