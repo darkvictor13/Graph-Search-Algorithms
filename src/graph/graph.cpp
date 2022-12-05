@@ -210,7 +210,7 @@ std::vector<std::string> Graph::AStar() {
         closed[current_node._id] = true;
 
         for (const auto& node : _nodes[current_node._id]) {
-            if (!hasWeight(node._state)) {
+            if (!hasWeight(node._state) || closed[node._id]) {
                 continue;
             }
             const int16_t already_traveled =
