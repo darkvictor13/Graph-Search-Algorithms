@@ -8,7 +8,7 @@ OUTPUT_BASE=tests_output/test
 rm -f $SUMMARY_FILE
 echo "Testes executados em: $(date)" >> $SUMMARY_FILE
 echo "BFS:" >> $SUMMARY_FILE
-for number in {1..10}; do
+for number in {1..100}; do
     FILE_NAME=$OUTPUT_BASE$number.BFS.txt
     ./$EXEC $INPUT $FILE_NAME B
     awk 'NR == 4 {print $5}' $FILE_NAME >> $SUMMARY_FILE
@@ -16,7 +16,7 @@ for number in {1..10}; do
 done
 
 echo "DFS:" >> $SUMMARY_FILE
-for number in {1..10}; do
+for number in {1..100}; do
     FILE_NAME=$OUTPUT_BASE$number.DFS.txt
     ./$EXEC $INPUT $FILE_NAME D
     awk 'NR == 4 {print $5}' $FILE_NAME >> $SUMMARY_FILE
@@ -24,7 +24,7 @@ for number in {1..10}; do
 done
 
 echo "A*:" >> $SUMMARY_FILE
-for number in {1..10}; do
+for number in {1..100}; do
     FILE_NAME=$OUTPUT_BASE$number.A*.txt
     ./$EXEC $INPUT $FILE_NAME A
     awk 'NR == 4 {print $5}' $FILE_NAME >> $SUMMARY_FILE

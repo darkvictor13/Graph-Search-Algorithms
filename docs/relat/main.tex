@@ -8,9 +8,9 @@
 
 \begin{document}
 \capa%
-\tableofcontents\cleardoublepage%
-%\listoffigures\cleardoublepage
-%\listoftables\cleardoublepage
+\tableofcontents%
+\listoffigures%
+\listoftables\cleardoublepage%
 
 \section{Introdução}\label{sec:intro}
 O Projeto tem como objetivo a implementação de um sistema para auxiliar turistas em Veneza a chegarem aos diversos museus da cidade.
@@ -32,7 +32,7 @@ ou coletados em tempo de execução, para ver os argumentos para o programa veja
 
 Uma vez que todos os parâmetros para execução do programa podem ser passados antes que ele inicie,
 pode-se fazer uso de scripts para automatizar a execução do programa gerando resultados para diferentes cenários.
-Dessa maneira foi implementado um script para testar o desempenho, explicado na seção~\ref{sec:resultados}.
+Dessa maneira foi implementado um script para testar o desempenho, explicado na seção~\ref{sec:testes}.
 
 \section{Executando o programa}\label{sec:executando_programa}
 \subsection{Requisitos}\label{sec:requisitos}
@@ -44,10 +44,28 @@ Dessa maneira foi implementado um script para testar o desempenho, explicado na 
 \end{itemize}
 
 \subsection{Compilando}\label{sec:compilando}
+Antes de realizar a compilação é necessário definir o nível de mensagens que serão exibidas durante a execução do programa.
+
+Para isso basta definir a expressão \texttt{DEFAULT\_LOG\_LEVEL}, no arquivo\\\texttt{logger.hpp},
+para um dos valores definidos no enum \texttt{LogLevel}:
+\begin{lstlisting}[caption={Enum LogLevel}, label={lst:log}]
+    enum LogLevel { DEBUG, INFO, WARNING, ERROR, FATAL };
+\end{lstlisting}
+
+Caso o valor seja definido como:
 \begin{itemize}
-    \item\texttt{cd build}
-    \item\texttt{cmake .}
-    \item\texttt{make}
+    \item\textbf{DEBUG}: Todas as mensagens serão exibidas, tais como objeto construído, objeto destruído, tempos de execução de funções intermediárias, etc.
+    \item\textbf{INFO}: Exibe mensagens ``Modo iterativo'' dos algoritmos, como a ilha que está sendo visitada, entre outras.
+    \item\textbf{WARNING}: Exibe mensagens de aviso como quando um arquivo não é encontrado.
+    \item\textbf{ERROR}: Exibe mensagens de erro na qual ainda é possível continuar a execução do programa.
+    \item\textbf{FATAL}: Exibe apenas mensagens de erro que impossibilitam a execução do programa, nível que menos exibe mensagens.
+\end{itemize}
+
+Uma vez definido qual o nível de mensagens que serão exibidas, basta compilar o programa com os comandos:
+\begin{itemize}
+    \item Entrar na pasta build: \texttt{cd build}
+    \item Configurar o projeto: \texttt{cmake .}
+    \item Compilar o projeto: \texttt{make}
 \end{itemize}
 
 \subsection{Executando}\label{sec:executando}
@@ -68,23 +86,75 @@ sendo eles:
     \end{itemize}
 \end{enumerate}
 
+Exemplos de execução:
+\begin{itemize}
+    \item\textbf{Sem argumentos:} \texttt{./Graph\_Search\_Algorithms\_1.0.0}
+    \item\textbf{Com argumentos:} \texttt{./Graph\_Search\_Algorithms\_1.0.0\\input\_files/exemplo\_prof.txt output.txt A}
+\end{itemize}
+
+\subsection{Saída}\label{sec:saida}
+Caso a execução seja bem sucedida, o programa irá gerar um arquivo de saída contendo o resumo da execução,
+que deverá ser semelhante ao exemplo abaixo:
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{saida_teste.png}
+    \caption{Exemplo de arquivo de saída do programa}
+    \label{fig:saida_teste}
+\end{figure}
+
+
 \section{Implementação}\label{sec:impl}
+Essa seção visa explicar a implementação do programa,
+especificando seus algoritmos e estruturas de dados.
 
 \subsection{Estruturas de dados}\label{sec:estruturas}
+Segue abaixo a descrição das estruturas de dados utilizadas no programa.
+
+\begin{lstlisting}[caption={Estrutura de dados para representar um nó do grafo.}, label={lst:node}]
+    enum NodeState { HAS_NONE = 0, HAS_WEIGHT, HAS_HEURISTIC, HAS_BOTH };
+
+    class AdjacencyNode {
+    private:
+        std::string _id;
+        int16_t _weight;
+        int16_t _heuristic;
+        NodeState _state;
+    };
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Estrutura de dados para representar o grafo.}, label={lst:graph}]
+    class Graph {
+    private:
+        std::unordered_map<std::string, std::vector<AdjacencyNode>> _nodes;
+        std::string _start_node;
+        std::string _end_node;
+        Algorithms _algorithm;
+    };
+\end{lstlisting}
+
+Para representação do grafo foi utilizado uma lista de adjacência,
+porém ao invés de utilizar um vetor, como normalmente é utilizado,
+optou-se por usar um \textit{unordered\_map}, tabela hash, para armazenar os nós do grafo.
+Visto que no arquivo de entrada possui nomes de ilhas e não números para identificar os nós,
+dessa forma para utilizar um vetor seria necessário um mapeamento entre os nomes e os números,
+o que poderia dificultar a implementação.
+
+A estrutura grafo também armazena o identificador do nó inicial e final,
+bem como o algoritmo a ser utilizado.
+Sendo assim o grafo é o objeto que contém todos os dados necessários para a execução do programa.
 
 \subsection{Algoritmos de busca}\label{sec:algoritmos}
 \subsubsection{Algoritmo A* (melhor solução)}\label{sec:astar}
 \subsubsection{Busca em largura (pior solução)}\label{sec:bl}
 \subsubsection{Busca em profundidade (extra)}\label{sec:bp}
 
-\section{Resultados}\label{sec:resultados}
+\section{Testando o sistema}\label{sec:testes}
 Com o sistema implementado, foi possível realizar os seguintes testes:
 \subsection{Descrição do teste}
 \begin{itemize}
-    %TODO: Definir X
     \item Para cada um dos algoritmos de busca implementados,
     foi executado X vezes passando os parâmetros \( arquivo ~ saida_i ~ algoritmos_j \),
-    sendo \( i \in \{1, \ldots, X\} \) e \( j \in \{ \)A*,\( \} \).
+    sendo \( i \in \{1, \ldots, 100\} \) e \( j \in \{ \)A*, DFS, BFS\( \} \).
     \item Os testes foram realizados em um computador com as seguintes características:
     \begin{itemize}
         \item\textbf{Processador}: i3--1115G4 4.100GHz;
