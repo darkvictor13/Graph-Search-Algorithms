@@ -25,7 +25,7 @@ done
 
 echo "A*:" >> $SUMMARY_FILE
 for number in {1..100}; do
-    FILE_NAME=$OUTPUT_BASE$number.A*.txt
+    FILE_NAME=$OUTPUT_BASE$number.A_star.txt
     ./$EXEC $INPUT $FILE_NAME A
     awk 'NR == 4 {print $5}' $FILE_NAME >> $SUMMARY_FILE
     sleep 1

@@ -158,11 +158,71 @@ std::vector<std::string> Graph::BFS() {
     return path;
 }
 
+struct AStarNode {
+    public:
+        std::string _id;
+        int16_t _already_traveled, _estimated_cost;
+
+    public:
+        AStarNode() = default;
+        AStarNode(const std::string& id, int16_t already_traveled,
+                  int16_t estimated_cost)
+            : _id(id),
+              _already_traveled(already_traveled),
+              _estimated_cost(estimated_cost) {
+        }
+};
+
 std::vector<std::string> Graph::AStar() {
     DEBUG_LOG("Iniciando A*");
-    std::vector<std::string> path;
+    char print_buffer[64];
 
-    return path;
+    const auto graph_size = _nodes.size();
+    std::priority_queue<AStarNode, std::vector<AStarNode>,
+                        std::function<bool(const AStarNode&, const AStarNode&)>>
+        open([](const AStarNode& a, const AStarNode& b) {
+            return a._already_traveled + a._estimated_cost >
+                   b._already_traveled + b._estimated_cost;
+        });
+    std::unordered_map<std::string, bool> closed;
+    std::string predecessors[graph_size];
+
+    const int16_t estimated_cost =
+        hasHeuristic(_nodes[_start_node][getIndex(_end_node)]._state)
+            ? _nodes[_start_node][getIndex(_end_node)]._heuristic
+            : INT16_MAX;
+    open.push({_start_node, 0, estimated_cost});
+
+    while (!open.empty()) {
+        const auto current_node = open.top();
+        open.pop();
+        sprintf(print_buffer, "Analisando nó: %s", current_node._id.c_str());
+        INFO_LOG(print_buffer);
+
+        if (current_node._id == _end_node) {
+            INFO_LOG("Nó final encontrado");
+            return getPath(predecessors);
+        }
+
+        if (closed[current_node._id]) {
+            continue;
+        }
+        closed[current_node._id] = true;
+
+        for (const auto& node : _nodes[current_node._id]) {
+            if (!hasWeight(node._state)) {
+                continue;
+            }
+            const int16_t already_traveled =
+                current_node._already_traveled + node._weight;
+            const int16_t estimated_cost =
+                hasHeuristic(node._state) ? node._heuristic : INT16_MAX;
+            open.push({node._id, already_traveled, estimated_cost});
+            predecessors[getIndex(node._id)] = current_node._id;
+        }
+    }
+
+    return {};
 }
 
 Graph::Graph() noexcept
