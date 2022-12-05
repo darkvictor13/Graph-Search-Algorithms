@@ -12,7 +12,7 @@ enum LogLevel { DEBUG, INFO, WARNING, ERROR, FATAL };
 /**
  * @brief Define o nível de log padrão da aplicação.
  */
-constexpr LogLevel DEFAULT_LOG_LEVEL = LogLevel::DEBUG;
+constexpr LogLevel DEFAULT_LOG_LEVEL = LogLevel::FATAL;
 
 class Logger {
     private:

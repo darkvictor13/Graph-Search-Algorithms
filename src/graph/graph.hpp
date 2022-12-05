@@ -11,8 +11,11 @@
 enum class Algorithms : char {
     ALGORITHM_A_STAR = 'A',
     ALGORITHM_BFS,
-    ALGORITHM_INVALID
+    ALGORITHM_INVALID,
+    ALGORITHM_DFS
 };
+
+enum Colors { WHITE, GRAY, BLACK };
 
 class Graph {
         friend class InputFileParser;
@@ -38,6 +41,14 @@ class Graph {
         Algorithms _algorithm;
 
     private:
+        bool dfsVisit(const std::string& actual, const std::string& final,
+                      Colors colors[], std::string predecessors[]);
+        /**
+         * @brief Executa o algoritmo de busca em profundidade.
+         *
+         * @return std::vector<std::string> Lista de nós que formam o caminho
+         */
+        std::vector<std::string> DFS();
         /**
          * @brief Executa o algoritmo de busca em largura.
          *
@@ -54,6 +65,8 @@ class Graph {
          * @return std::vector<std::string> Lista de nós que formam o caminho
          */
         std::vector<std::string> AStar();
+
+        std::vector<std::string> getPath(const std::string predecessors[]);
 
     public:
         /**

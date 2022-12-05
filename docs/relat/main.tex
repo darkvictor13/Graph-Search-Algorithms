@@ -15,7 +15,62 @@
 \section{Introdução}\label{sec:intro}
 O Projeto tem como objetivo a implementação de um sistema para auxiliar turistas em Veneza a chegarem aos diversos museus da cidade.
 
+Implementado inteiramente em c++20 sem utilização de bibliotecas externas além das bibliotecas padrão do c++20,
+podendo assim ser compilado em qualquer sistema operacional que possua o compilador adequado.
+
+Essa linguagem foi escolhida pois além de possuir abstrações alto nível com o uso de classes,
+ainda é extremamente eficiente ao ser compilada diretamente para para linguagem de máquina.
+Além do disso a dupla responsável pelo projeto possui familiaridade com a linguagem.
+
+O sistema é capaz de calcular a rota mais curta entre dois pontos,
+utilizando os algoritmos A*, busca em largura e busca em profundidade.
+
+Visando a simplicidade e levar os algoritmos a seus limites de eficiência,
+o sistema não implementa uma interface gráfica,
+todos os argumentos devem ser passados como argumentos de linha de comando,
+ou coletados em tempo de execução, para ver os argumentos para o programa veja a seção~\ref{sec:executando}.
+
+Uma vez que todos os parâmetros para execução do programa podem ser passados antes que ele inicie,
+pode-se fazer uso de scripts para automatizar a execução do programa gerando resultados para diferentes cenários.
+Dessa maneira foi implementado um script para testar o desempenho, explicado na seção~\ref{sec:resultados}.
+
+\section{Executando o programa}\label{sec:executando_programa}
+\subsection{Requisitos}\label{sec:requisitos}
+\begin{itemize}
+    \item cmake;
+    \item make;
+    \item g++;
+    \item git (opcional).
+\end{itemize}
+
+\subsection{Compilando}\label{sec:compilando}
+\begin{itemize}
+    \item\texttt{cd build}
+    \item\texttt{cmake .}
+    \item\texttt{make}
+\end{itemize}
+
+\subsection{Executando}\label{sec:executando}
+Para executar o programa basta executar o arquivo
+
+\texttt{Graph\_Search\_Algorithms\_1.0.0} gerado na pasta build.
+
+Caso nada seja passado como argumento, o programa irá coletar os argumentos em tempo de execução,
+sendo eles:
+\begin{enumerate}
+    \item O caminho para o arquivo de entrada;
+    \item O caminho para o arquivo de saída contendo o resumo da execução;
+    \item O algoritmo a ser utilizado, podendo ser:
+    \begin{itemize}
+        \item A \( \rightarrow \) A*;
+        \item B \( \rightarrow \) \textit{BFS, Breadth First Search} (busca em largura);
+        \item D \( \rightarrow \) \textit{DFS, Depth First Search} (busca em profundidade).
+    \end{itemize}
+\end{enumerate}
+
 \section{Implementação}\label{sec:impl}
+
+\subsection{Estruturas de dados}\label{sec:estruturas}
 
 \subsection{Algoritmos de busca}\label{sec:algoritmos}
 \subsubsection{Algoritmo A* (melhor solução)}\label{sec:astar}

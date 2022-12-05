@@ -4,11 +4,10 @@
 #include <queue>
 #include <unordered_map>
 
+#include "../graph/node_state.hpp"
 #include "../logs/file_logger.hpp"
 #include "../logs/log_macros.hpp"
 #include "../timer/scoped_timer.hpp"
-
-enum Colors { WHITE, GRAY, BLACK };
 
 size_t Graph::existEdge(const std::string& start_node,
                         const std::string& end_node) const noexcept {
@@ -34,10 +33,81 @@ uint8_t getIndex(const std::string& id) {
     return map[id];
 }
 
-std::vector<std::string> Graph::BFS() {
-    DEBUG_LOG("Iniciando BFS");
-
+std::vector<std::string> Graph::getPath(const std::string predecessors[]) {
     std::vector<std::string> path;
+
+    std::string current_node = _end_node;
+    while (current_node != _start_node) {
+        const auto& predecessor = predecessors[getIndex(current_node)];
+        if (predecessor.empty()) {
+            path.clear();
+            return path;
+        }
+        path.push_back(std::move(current_node));
+        current_node = predecessor;
+    }
+    path.push_back(_start_node);
+    return path;
+}
+
+bool Graph::dfsVisit(const std::string& actual, const std::string& final,
+                     Colors colors[], std::string predecessors[]) {
+    if (actual == final) {
+        INFO_LOG("Nó final encontrado");
+        return true;
+    }
+
+    char print_buffer[64];
+    sprintf(print_buffer, "Visitando nó %s", actual.c_str());
+    INFO_LOG(print_buffer);
+    const auto index_id = getIndex(actual);
+    colors[index_id] = GRAY;
+    for (const auto& node : _nodes.at(actual)) {
+        if (!hasWeight(node._state)) {
+            continue;
+        }
+        const auto index_node = getIndex(node._id);
+        if (colors[index_node] == WHITE) {
+            predecessors[index_node] = actual;
+            const auto ret = dfsVisit(node._id, final, colors, predecessors);
+            if (ret) {
+                return true;
+            }
+        }
+    }
+    colors[index_id] = BLACK;
+    return false;
+}
+
+std::vector<std::string> Graph::DFS() {
+    INFO_LOG("Iniciando DFS");
+
+    const auto graph_size = _nodes.size();
+    Colors colors[graph_size];
+    std::string predecessors[graph_size];
+
+    for (const auto& [id, _] : _nodes) {
+        colors[getIndex(id)] = WHITE;
+    }
+
+    dfsVisit(_start_node, _end_node, colors, predecessors);
+    /*
+    for (const auto& [id, _] : _nodes) {
+        if (colors[getIndex(id)] == WHITE) {
+            dfs_visit(id, _end_node);
+        }
+    }
+    */
+
+    auto&& path = getPath(predecessors);
+
+    INFO_LOG("Finalizando DFS");
+    return path;
+}
+
+std::vector<std::string> Graph::BFS() {
+    INFO_LOG("Iniciando BFS");
+    char print_buffer[64];
 
     const auto graph_size = _nodes.size();
     std::queue<std::string> queue;
@@ -57,25 +127,34 @@ std::vector<std::string> Graph::BFS() {
         colors[index] = GRAY;
         distances[index] = 0;
         queue.push(_start_node);
-        path.push_back(_start_node);
     }
 
     while (!queue.empty()) {
+        sprintf(print_buffer, "Tamanho da fila: %zu", queue.size());
+        INFO_LOG(print_buffer);
+
         const auto& current_node = queue.front();
+        sprintf(print_buffer, "Analisando nó: %s", current_node.c_str());
+        INFO_LOG(print_buffer);
         for (auto& node : _nodes[current_node]) {
+            if (!hasWeight(node._state)) {
+                continue;
+            }
             const auto index = getIndex(node._id);
             if (colors[index] == WHITE) {
                 colors[index] = GRAY;
                 distances[index] = distances[getIndex(current_node)] + 1;
                 predecessors[index] = current_node;
                 queue.push(node._id);
-                path.push_back(node._id);
             }
         }
         queue.pop();
         colors[getIndex(current_node)] = BLACK;
     }
 
+    auto&& path = getPath(predecessors);
+
+    INFO_LOG("Finalizando BFS");
     return path;
 }
 
@@ -111,8 +190,9 @@ Graph::Graph(Graph&& other) noexcept
 }
 
 bool Graph::isValidAlgorithm(const char algorithm) const {
-    return algorithm >= static_cast<char>(Algorithms::ALGORITHM_A_STAR) &&
-           algorithm < static_cast<char>(Algorithms::ALGORITHM_INVALID);
+    return algorithm == static_cast<char>(Algorithms::ALGORITHM_A_STAR) ||
+           algorithm == static_cast<char>(Algorithms::ALGORITHM_BFS) ||
+           algorithm == static_cast<char>(Algorithms::ALGORITHM_DFS);
 }
 
 void Graph::setAlgorithm(const char algorithm) {
@@ -138,6 +218,9 @@ std::vector<std::string> Graph::runAlgorithm() {
     }
     if (_algorithm == Algorithms::ALGORITHM_BFS) {
         return BFS();
+    }
+    if (_algorithm == Algorithms::ALGORITHM_DFS) {
+        return DFS();
     }
     ERROR_LOG("Algoritmo invalido");
     return {};

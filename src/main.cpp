@@ -32,13 +32,13 @@
  * @brief Mostra a mensagem de como utilizar o programa.
  */
 void helpMessage() {
-    std::cout
-        << "\nUso: ./exec [argumentos] | [-h] | [--help]\n\n"
-        << "Argumentos:\n"
-        << "\tArgumento 1: Arquivo de entrada\n"
-        << "\tArgumento 2: Arquivo para guardar as métricas\n"
-        << "\tArgumento 3: Algoritmo a ser executado (A -> A*, B -> BFS)\n"
-        << "[-h] [--help]: Mostra essa mensagem de ajuda\n";
+    std::cout << "\nUso: ./exec [argumentos] | [-h] | [--help]\n\n"
+              << "Argumentos:\n"
+              << "\tArgumento 1: Arquivo de entrada\n"
+              << "\tArgumento 2: Arquivo para guardar as métricas\n"
+              << "\tArgumento 3: Algoritmo a ser executado (A -> A*, B -> BFS, "
+                 "D -> DFS)\n"
+              << "[-h] [--help]: Mostra essa mensagem de ajuda\n";
 }
 
 /**
@@ -147,7 +147,8 @@ int main(int argc, const char* const* argv) {
     arg = argc > 3 ? argv[3] : "";
     char algorithm;
     if (arg.empty() || arg.size() != 1) {
-        std::cout << "Digite o algoritmo a ser executado (A -> A*, B -> BFS): ";
+        std::cout << "Digite o algoritmo a ser executado (A -> A*, B -> BFS, D "
+                     "-> DFS): ";
         std::cin.get(algorithm);
     } else {
         algorithm = arg[0];
@@ -161,10 +162,14 @@ int main(int argc, const char* const* argv) {
     const auto& path = graph.runAlgorithm();
 
     file_logger << "Caminho:";
-    for (const auto& node : path) {
-        file_logger << " " << node;
+    if (path.empty()) {
+        file_logger << " Nao existe\n";
+    } else {
+        for (const auto& node : path) {
+            file_logger << " " << node;
+        }
+        file_logger << "\n";
     }
-    file_logger << "\n";
 
     return EXIT_SUCCESS;
 }

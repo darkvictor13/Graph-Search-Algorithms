@@ -66,11 +66,11 @@ Graph InputFileParser::parse() {
                 graph._nodes[end_node].emplace_back(start_node, weight, true);
             } else {
                 graph._nodes[start_node][index]._weight = weight;
-                graph._nodes[start_node][index]._state = NodeState::HAS_BOTH;
+                setHasWeight(graph._nodes[start_node][index]._state);
 
                 index = graph.existEdge(end_node, start_node);
                 graph._nodes[end_node][index]._weight = weight;
-                graph._nodes[end_node][index]._state = NodeState::HAS_BOTH;
+                setHasWeight(graph._nodes[end_node][index]._state);
             }
         } else if (first_word == "h") {
             auto &&[start_node, end_node, h] = parseArguments(arguments);
@@ -80,11 +80,11 @@ Graph InputFileParser::parse() {
                 graph._nodes[end_node].emplace_back(start_node, h, false);
             } else {
                 graph._nodes[start_node][index]._heuristic = h;
-                graph._nodes[start_node][index]._state = NodeState::HAS_BOTH;
+                setHasHeuristic(graph._nodes[start_node][index]._state);
 
                 index = graph.existEdge(end_node, start_node);
                 graph._nodes[end_node][index]._heuristic = h;
-                graph._nodes[end_node][index]._state = NodeState::HAS_BOTH;
+                setHasHeuristic(graph._nodes[end_node][index]._state);
             }
         } else {
             FATAL_LOG("File has invalid syntax");

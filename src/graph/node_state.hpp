@@ -12,11 +12,15 @@ enum NodeState { HAS_NONE = 0, HAS_WEIGHT, HAS_HEURISTIC, HAS_BOTH };
  *
  * @param state O estado atual do nó.
  */
-constexpr inline void setHasWeight(NodeState& state);
+void setHasWeight(NodeState& state);
 
 /**
  * @brief Faz com que o estado indique que o nó possui uma heurística.
  *
  * @param state O estado atual do nó.
  */
-constexpr inline void setHasHeuristic(NodeState& state);
+void setHasHeuristic(NodeState& state);
+
+bool hasWeight(const NodeState& state);
+
+bool hasHeuristic(const NodeState& state);

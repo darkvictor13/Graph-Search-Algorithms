@@ -1,0 +1,11 @@
+ilha_inicial(a). % indica a partir de onde a busca deve começar.
+ilha_final(c). % indica onde a busca deve terminar.
+ponte(a,b,100). % existe uma ponte da ilha a para b de comprimento 100.
+ponte(c,d,50).
+ponte(a,d,20).
+h(a,d,2). % distância em linha reta entre a e d com valor de 2
+h(a,b,10).
+h(a,c,5).
+h(a,d,8).
+h(b,d,20).
+h(c,d,10).
