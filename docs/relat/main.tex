@@ -13,7 +13,8 @@
 \listoftables\cleardoublepage%
 
 \section{Introdução}\label{sec:intro}
-O Projeto tem como objetivo a implementação de um sistema para auxiliar turistas em Veneza a chegarem aos diversos museus da cidade.
+O Projeto tem como objetivo a implementação de um sistema para auxiliar turistas em Veneza a chegarem aos diversos museus da cidade,
+localizados em diferentes ilhas.
 
 Implementado inteiramente em c++20 sem utilização de bibliotecas externas além das bibliotecas padrão do c++20,
 podendo assim ser compilado em qualquer sistema operacional que possua o compilador adequado.
@@ -107,6 +108,9 @@ que deverá ser semelhante ao exemplo abaixo:
 Essa seção visa explicar a implementação do programa,
 especificando seus algoritmos e estruturas de dados.
 
+Para mais detalhes da implementação, tais como todas as classes e seus métodos,
+pode-se consultar a documentação em \url{https://graph-search-algorithms.pages.dev/}
+
 \subsection{Estruturas de dados}\label{sec:estruturas}
 Segue abaixo a descrição das estruturas de dados utilizadas no programa.
 
@@ -155,6 +159,7 @@ Com o sistema implementado, foi possível realizar os seguintes testes:
     \item Para cada um dos algoritmos de busca implementados,
     foi executado X vezes passando os parâmetros \( arquivo ~ saida_i ~ algoritmos_j \),
     sendo \( i \in \{1, \ldots, 100\} \) e \( j \in \{ \)A*, DFS, BFS\( \} \).
+    \item Após cada execução espera-se um tempo de 1s para que o sistema possa ser executado novamente.
     \item Os testes foram realizados em um computador com as seguintes características:
     \begin{itemize}
         \item\textbf{Processador}: i3--1115G4 4.100GHz;
