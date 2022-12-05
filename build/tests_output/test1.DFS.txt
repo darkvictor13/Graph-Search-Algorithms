@@ -1,5 +1,5 @@
 Arquivo de entrada: input_files/exemplo_prof.txt
 Data: 05/12/2022
-Hora: 01:12:35.484927
-Execução do algoritmo demorou: 0:0:0.000008
+Hora: 20:30:17.190348
+Execução do algoritmo demorou: 0:0:0.000007
 Caminho: b a

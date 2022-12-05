@@ -9,8 +9,7 @@
 \begin{document}
 \capa%
 \tableofcontents%
-\listoffigures%
-\listoftables\cleardoublepage%
+\listoffigures\cleardoublepage%
 
 \section{Introdução}\label{sec:intro}
 O Projeto tem como objetivo a implementação de um sistema para auxiliar turistas em Veneza a chegarem aos diversos museus da cidade,
@@ -29,11 +28,11 @@ utilizando os algoritmos A*, busca em largura e busca em profundidade.
 Visando a simplicidade e levar os algoritmos a seus limites de eficiência,
 o sistema não implementa uma interface gráfica,
 todos os argumentos devem ser passados como argumentos de linha de comando,
-ou coletados em tempo de execução, para ver os argumentos para o programa veja a seção~\ref{sec:executando}.
+ou coletados em tempo de execução, para ver os argumentos para o programa veja a seção~\nameref{sec:executando}.
 
 Uma vez que todos os parâmetros para execução do programa podem ser passados antes que ele inicie,
 pode-se fazer uso de scripts para automatizar a execução do programa gerando resultados para diferentes cenários.
-Dessa maneira foi implementado um script para testar o desempenho, explicado na seção~\ref{sec:testes}.
+Dessa maneira foi implementado um script para testar o desempenho, explicado na seção~\nameref{sec:testes}.
 
 \section{Executando o programa}\label{sec:executando_programa}
 \subsection{Requisitos}\label{sec:requisitos}
@@ -148,12 +147,41 @@ bem como o algoritmo a ser utilizado.
 Sendo assim o grafo é o objeto que contém todos os dados necessários para a execução do programa.
 
 \subsection{Algoritmos de busca}\label{sec:algoritmos}
+A seguir é apresentado os algoritmos de busca implementados no programa.
+
 \subsubsection{Algoritmo A* (melhor solução)}\label{sec:astar}
-\subsubsection{Busca em largura (pior solução)}\label{sec:bl}
+Algoritmo de busca ótimo que utiliza uma heurística para encontrar a melhor solução.
+
+Escolhe o próximo nó a ser visitado com base no custo total do caminho, \( g(n) \), até o nó somado com o custo estimado do nó até o nó final, \( h(n) \),
+sendo esse custo estimado a heurística do nó. Sendo representado matematicamente por:
+\begin{equation}
+    f(n) = g(n) + h(n)
+\end{equation}
+
+A complexidade de tempo deste algoritmo é \( O(b^d) \), sendo \( b \) a ramificação do grafo e \( d \) a profundidade da solução,
+porém caso a possua uma boa heurística a resposta será encontrada em menos iterações. Por esse motivo foi escolhido como melhor solução.
+
 \subsubsection{Busca em profundidade (extra)}\label{sec:bp}
+Algoritmo de busca cega não ótimo e completo, devido ao fato de existir um número finito de ilhas (espaço de busca ser finito).
+
+Sempre escolhe o nó mais profundo na árvore de busca para visitar.
+
+A complexidade de tempo deste algoritmo é \( O(b^m) \), sendo \( b \) a ramificação do grafo e \( m \) a profundidade da solução,
+e a complexidade de espaço é \( O(bm) \).
+
+\subsubsection{Busca em largura (pior solução)}\label{sec:bl}
+Algoritmo de busca cega completo e ótimo, com implementação simples.
+
+Escolhe o próximo nó a ser visitado com base na profundidade do nó,
+sendo o nó mais próximo do nó inicial escolhido primeiro.
+
+A complexidade de tempo deste algoritmo é \( O(b^d) \), sendo \( b \) e \( d \) explicados na seção \nameref{sec:astar} a cima.
+
+Pelo fato deste algoritmo gastar mais memória que o algoritmo de busca em profundidade, \( O(b^d) \),
+foi escolhido como pior solução.
 
 \section{Testando o sistema}\label{sec:testes}
-Com o sistema implementado, foi possível realizar os seguintes testes:
+Com o sistema implementado, foi realizado testes utilizando o script \textit{build/run\_tests.sh}
 \subsection{Descrição do teste}
 \begin{itemize}
     \item Para cada um dos algoritmos de busca implementados,
@@ -168,7 +196,20 @@ Com o sistema implementado, foi possível realizar os seguintes testes:
         \item\textbf{Sistema operacional}: Arch Linux~\footnote{Link para download do sistema operacional\url{https://archlinux.org/download/}}.
     \end{itemize}
     \item A execução dos testes foi realizada logo após a inicialização do computador, sem nenhum outro processo de usuário em execução.
+    \item Os arquivos de saída gerados foram salvos em \texttt{build/tests\_output}.
 \end{itemize}
+
+\subsection{Arquivo de entrada}\label{sec:arquivo_ent}
+Para a realização dos testes foi utilizado o arquivo de entrada disponibilizado pela professora na especificação do trabalho,
+esse arquivo está em \texttt{build/input\_files/exemplo\_prof.txt}.
+
+Que gera um grafo semelhante ao da figura~\ref{fig:grafo}.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=.8\textwidth]{grafo.jpeg}
+    \caption{Grafo utilizado para os testes}
+    \label{fig:grafo}
+\end{figure}
 
 \subsection{Resultados dos testes}\label{sec:res}
 
