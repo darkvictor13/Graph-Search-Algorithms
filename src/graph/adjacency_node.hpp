@@ -32,6 +32,6 @@ class AdjacencyNode {
         AdjacencyNode();
         AdjacencyNode(const std::string& id, int16_t value, bool is_weight);
         AdjacencyNode(const AdjacencyNode& other);
-        AdjacencyNode(AdjacencyNode&& other);
+        AdjacencyNode(AdjacencyNode&& other) noexcept ;
         ~AdjacencyNode();
 };

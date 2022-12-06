@@ -15,20 +15,20 @@
 O Projeto tem como objetivo a implementação de um sistema para auxiliar turistas em Veneza a chegarem aos diversos museus da cidade,
 localizados em diferentes ilhas.
 
-Implementado inteiramente em c++20 sem utilização de bibliotecas externas além das bibliotecas padrão do c++20,
-podendo assim ser compilado em qualquer sistema operacional que possua o compilador adequado.
+Implementado inteiramente na linguagem de programação C++ na revisão 2020 (C++20) sem utilização de bibliotecas externas além das padrões da linguagem,
+podendo assim ser compilado em qualquer sistema operacional que possua um compilador baseado no padrão ISO/IEC 14882:2020 \cite{ISOC++20}.
 
-Essa linguagem foi escolhida pois além de possuir abstrações alto nível com o uso de classes,
-ainda é extremamente eficiente ao ser compilada diretamente para para linguagem de máquina.
+O C++20 foi escolhido pois além de possuir abstrações alto nível com o uso de classes,
+ainda é extremamente eficiente ao ser compilado diretamente para para linguagem de máquina.
 Além do disso a dupla responsável pelo projeto possui familiaridade com a linguagem.
 
-O sistema é capaz de calcular a rota mais curta entre dois pontos,
-utilizando os algoritmos A*, busca em largura e busca em profundidade.
+O sistema é capaz de calcular a menor rota entre dois pontos,
+utilizando os algoritmos A*, Busca em Largura (Breadth-first Search) e Busca em Profundidade (Depth-first Search).
 
 Visando a simplicidade e levar os algoritmos a seus limites de eficiência,
 o sistema não implementa uma interface gráfica,
-todos os argumentos devem ser passados como argumentos de linha de comando,
-ou coletados em tempo de execução, para ver os argumentos para o programa veja a seção~\nameref{sec:executando}.
+todos os parâmetros devem ser passados como argumentos de linha de comando,
+ou coletados em tempo de execução. \(Para ver os argumentos para o programa veja a seção~\nameref{sec:executando}\).
 
 Uma vez que todos os parâmetros para execução do programa podem ser passados antes que ele inicie,
 pode-se fazer uso de scripts para automatizar a execução do programa gerando resultados para diferentes cenários.

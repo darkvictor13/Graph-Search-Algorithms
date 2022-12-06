@@ -28,7 +28,7 @@ AdjacencyNode::AdjacencyNode(const AdjacencyNode& other)
     DEBUG_LOG("Copy constructor");
 }
 
-AdjacencyNode::AdjacencyNode(AdjacencyNode&& other)
+AdjacencyNode::AdjacencyNode(AdjacencyNode&& other) noexcept
     : _id(std::move(other._id)),
       _weight(other._weight),
       _heuristic(other._heuristic),
