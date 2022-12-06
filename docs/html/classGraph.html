@@ -104,7 +104,7 @@ Diagrama de colaboração para Graph:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGraph__coll__graph.png" border="0" usemap="#aGraph_coll__map" alt="Collaboration graph"/></div>
 <map name="aGraph_coll__map" id="aGraph_coll__map">
-<area shape="rect" title=" " coords="5,5,140,265"/>
+<area shape="rect" title=" " coords="5,5,140,309"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -142,12 +142,21 @@ Membros Públicos</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Membros Privados</h2></td></tr>
+<tr class="memitem:a6bcda9ccddcb657e0e445d90e8a9a8fb"><td class="memItemLeft" align="right" valign="top"><a id="a6bcda9ccddcb657e0e445d90e8a9a8fb" name="a6bcda9ccddcb657e0e445d90e8a9a8fb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>dfsVisit</b> (const std::string &amp;actual, const std::string &amp;final, Colors colors[], std::string predecessors[])</td></tr>
+<tr class="separator:a6bcda9ccddcb657e0e445d90e8a9a8fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa68a6492460a31d511897f08059f3d5f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#aa68a6492460a31d511897f08059f3d5f">DFS</a> ()</td></tr>
+<tr class="memdesc:aa68a6492460a31d511897f08059f3d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa o algoritmo de busca em profundidade.  <a href="classGraph.html#aa68a6492460a31d511897f08059f3d5f">Mais...</a><br /></td></tr>
+<tr class="separator:aa68a6492460a31d511897f08059f3d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add885e1212ad6274c4a51cae9daba8bf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#add885e1212ad6274c4a51cae9daba8bf">BFS</a> ()</td></tr>
 <tr class="memdesc:add885e1212ad6274c4a51cae9daba8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa o algoritmo de busca em largura.  <a href="classGraph.html#add885e1212ad6274c4a51cae9daba8bf">Mais...</a><br /></td></tr>
 <tr class="separator:add885e1212ad6274c4a51cae9daba8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a848c9e407fd4ee35b62a3a4f3115d7f9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9">AStar</a> ()</td></tr>
 <tr class="memdesc:a848c9e407fd4ee35b62a3a4f3115d7f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa o algoritmo de busca A*.  <a href="classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9">Mais...</a><br /></td></tr>
 <tr class="separator:a848c9e407fd4ee35b62a3a4f3115d7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c620a339122e089d98f40267da752fa"><td class="memItemLeft" align="right" valign="top"><a id="a5c620a339122e089d98f40267da752fa" name="a5c620a339122e089d98f40267da752fa"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getPath</b> (const std::string predecessors[])</td></tr>
+<tr class="separator:a5c620a339122e089d98f40267da752fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Atributos Privados</h2></td></tr>
@@ -245,6 +254,43 @@ Esse é o diagrama das funções que utilizam essa função:</div>
 <div class="center"><img src="classGraph_add885e1212ad6274c4a51cae9daba8bf_icgraph.png" border="0" usemap="#aclassGraph_add885e1212ad6274c4a51cae9daba8bf_icgraph" alt=""/></div>
 <map name="aclassGraph_add885e1212ad6274c4a51cae9daba8bf_icgraph" id="aclassGraph_add885e1212ad6274c4a51cae9daba8bf_icgraph">
 <area shape="rect" title="Executa o algoritmo de busca em largura." coords="192,5,283,31"/>
+<area shape="rect" href="classGraph.html#af6ace053ba7b48db3c0d12c300cdfc79" title="Executa um algoritmo de busca no grafo." coords="5,5,144,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa68a6492460a31d511897f08059f3d5f" name="aa68a6492460a31d511897f08059f3d5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa68a6492460a31d511897f08059f3d5f">&#9670;&#160;</a></span>DFS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Graph::DFS </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executa o algoritmo de busca em profundidade. </p>
+<dl class="section return"><dt>Retorna</dt><dd>std::vector&lt;std::string&gt; Lista de nós que formam o caminho </dd></dl>
+<div class="dynheader">
+Esse é o diagrama das funções que utilizam essa função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGraph_aa68a6492460a31d511897f08059f3d5f_icgraph.png" border="0" usemap="#aclassGraph_aa68a6492460a31d511897f08059f3d5f_icgraph" alt=""/></div>
+<map name="aclassGraph_aa68a6492460a31d511897f08059f3d5f_icgraph" id="aclassGraph_aa68a6492460a31d511897f08059f3d5f_icgraph">
+<area shape="rect" title="Executa o algoritmo de busca em profundidade." coords="192,5,284,31"/>
 <area shape="rect" href="classGraph.html#af6ace053ba7b48db3c0d12c300cdfc79" title="Executa um algoritmo de busca no grafo." coords="5,5,144,31"/>
 </map>
 </div>
@@ -368,10 +414,11 @@ Este é o diagrama das funções utilizadas por essa função:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGraph_af6ace053ba7b48db3c0d12c300cdfc79_cgraph.png" border="0" usemap="#aclassGraph_af6ace053ba7b48db3c0d12c300cdfc79_cgraph" alt=""/></div>
 <map name="aclassGraph_af6ace053ba7b48db3c0d12c300cdfc79_cgraph" id="aclassGraph_af6ace053ba7b48db3c0d12c300cdfc79_cgraph">
-<area shape="rect" title="Executa um algoritmo de busca no grafo." coords="5,55,144,80"/>
+<area shape="rect" title="Executa um algoritmo de busca no grafo." coords="5,80,144,105"/>
 <area shape="rect" href="classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9" title="Executa o algoritmo de busca A*." coords="222,5,321,31"/>
 <area shape="rect" href="classGraph.html#add885e1212ad6274c4a51cae9daba8bf" title="Executa o algoritmo de busca em largura." coords="226,55,317,80"/>
-<area shape="rect" href="classFileLogger.html#aa0e8cf36d1d1e0d6336b53402716794f" title="Pegue a instância do FileLogger." coords="192,104,351,129"/>
+<area shape="rect" href="classGraph.html#aa68a6492460a31d511897f08059f3d5f" title="Executa o algoritmo de busca em profundidade." coords="225,104,317,129"/>
+<area shape="rect" href="classFileLogger.html#aa0e8cf36d1d1e0d6336b53402716794f" title="Pegue a instância do FileLogger." coords="192,153,351,179"/>
 </map>
 </div>
 

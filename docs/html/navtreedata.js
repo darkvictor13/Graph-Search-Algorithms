@@ -25,10 +25,7 @@
 var NAVTREE =
 [
   [ "Graph Search Algorithms", "index.html", [
-    [ "Documentação do projeto", "index.html", [
-      [ "Introdução", "index.html#intro_sec", null ],
-      [ "Como usar", "index.html#uso_sec", null ]
-    ] ],
+    [ "Documentação do projeto", "index.html", null ],
     [ "Classes", "annotated.html", [
       [ "Lista de Classes", "annotated.html", "annotated_dup" ],
       [ "Índice dos Componentes", "classes.html", null ],

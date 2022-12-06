@@ -4,6 +4,7 @@ var classGraph =
     [ "~Graph", "classGraph.html#a902c5b3eacb66d60752525ab23297a95", null ],
     [ "AStar", "classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9", null ],
     [ "BFS", "classGraph.html#add885e1212ad6274c4a51cae9daba8bf", null ],
+    [ "DFS", "classGraph.html#aa68a6492460a31d511897f08059f3d5f", null ],
     [ "existEdge", "classGraph.html#a273b4044932fc39b1de29ab5bf78be57", null ],
     [ "isValidAlgorithm", "classGraph.html#ad1c79f602da7a17d624293b185ea28f2", null ],
     [ "runAlgorithm", "classGraph.html#af6ace053ba7b48db3c0d12c300cdfc79", null ],

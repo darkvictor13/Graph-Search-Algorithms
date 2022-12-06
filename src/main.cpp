@@ -17,15 +17,7 @@
 /**
  * @mainpage Documentação do projeto
  *
- * @section intro_sec Introdução
- *
- * @section uso_sec Como usar
- *  Para usar o programa, basta executar o comando:
- * @code
- * ./exec <arquivo de entrada> <arquivo com as métricas> <algoritmo>
- * @endcode
- * Todos os argumentos são opcionais. Caso não sejam passados, o programa irá
- * perguntar ao usuário.
+ * Todas as especificações do projeto estão no relatório técnico em docs/relat/main.pdf
  */
 
 /**

@@ -23,12 +23,12 @@ ainda é extremamente eficiente ao ser compilado diretamente para para linguagem
 Além do disso a dupla responsável pelo projeto possui familiaridade com a linguagem.
 
 O sistema é capaz de calcular a menor rota entre dois pontos,
-utilizando os algoritmos A*, Busca em Largura (Breadth-first Search) e Busca em Profundidade (Depth-first Search).
+utilizando os algoritmos A*, Busca em Largura (\textit{Breadth-first Search}) e Busca em Profundidade (\textit{Depth-first Search}).
 
 Visando a simplicidade e levar os algoritmos a seus limites de eficiência,
 o sistema não implementa uma interface gráfica,
 todos os parâmetros devem ser passados como argumentos de linha de comando,
-ou coletados em tempo de execução. \(Para ver os argumentos para o programa veja a seção~\nameref{sec:executando}\).
+ou coletados em tempo de execução. (Para ver os argumentos para o programa veja a seção~\nameref{sec:executando} ).
 
 Uma vez que todos os parâmetros para execução do programa podem ser passados antes que ele inicie,
 pode-se fazer uso de scripts para automatizar a execução do programa gerando resultados para diferentes cenários.
@@ -152,8 +152,8 @@ A seguir é apresentado os algoritmos de busca implementados no programa.
 \subsubsection{Algoritmo A* (melhor solução)}\label{sec:astar}
 Algoritmo de busca ótimo que utiliza uma heurística para encontrar a melhor solução.
 
-Escolhe o próximo nó a ser visitado com base no custo total do caminho, \( g(n) \), até o nó somado com o custo estimado do nó até o nó final, \( h(n) \),
-sendo esse custo estimado a heurística do nó. Sendo representado matematicamente por:
+Escolhe o próximo nó a ser visitado com base no custo total do caminho\cite{a_star_computerphile}, \( g(n) \), até o nó somado com o custo estimado do nó até o nó final, \( h(n) \),
+sendo esse custo estimado a heurística do nó. Sendo representado matematicamente por\cite{gate_a_star_algorithm}:
 \begin{equation}
     f(n) = g(n) + h(n)
 \end{equation}
@@ -206,16 +206,56 @@ esse arquivo está em \texttt{build/input\_files/exemplo\_prof.txt}.
 Que gera um grafo semelhante ao da figura~\ref{fig:grafo}.
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=.8\textwidth]{grafo.jpeg}
+    \includegraphics[width=.7\textwidth]{grafo.png}
     \caption{Grafo utilizado para os testes}
     \label{fig:grafo}
 \end{figure}
 
 \subsection{Resultados dos testes}\label{sec:res}
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=.85\textwidth]{images/tempo_exec_a_star.png}
+    \caption{Tempos de execução A*}
+    \label{fig:tempo_exec_}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=.85\textwidth]{images/tempo_exec_bfs.png}
+    \caption{Tempos de execução BFS}
+    \label{fig:tempo_exec_bfs}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=.85\textwidth]{images/tempo_exec_dfs.png}
+    \caption{Tempos de execução DFS}
+    \label{fig:tempo_exec_dfs}
+\end{figure}
+
+\cleardoublepage%
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=.5\textwidth]{media_exec.png}
+    \caption{Média dos tempos de execução dos algoritmos}
+    \label{fig:tempo}
+\end{figure}
+
 
 \section{Conclusão}\label{sec:concl}
+Nesse trabalho foi implementado um sistema para encontrar a melhor rota entre duas ilhas,
+utilizando os algoritmos de busca A*, \textit{BFS} e \textit{DFS}.
 
-%\bibliography{ref}
+Observando os resultados o algoritmo \textit{BFS} foi o melhor em termos de tempo de execução,
+devido ao fato do grafo possuir um caminho muito pequeno entre as ilhas,
+o que faz com que o algoritmo simplesmente busque em apenas duas ilhas.
+
+Caso o grafo fosse maior, o algoritmo \textit{A*} seria o melhor,
+visto que suas iterações são mais custosas computacionalmente,
+porém tende a realizar um número menor de iterações.
+
+\bibliography{ref}
 
 \end{document}

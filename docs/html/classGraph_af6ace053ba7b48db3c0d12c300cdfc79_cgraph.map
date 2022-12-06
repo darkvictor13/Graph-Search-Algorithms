@@ -1,6 +1,7 @@
 <map id="Graph::runAlgorithm" name="Graph::runAlgorithm">
-<area shape="rect" id="node1" title="Executa um algoritmo de busca no grafo." coords="5,55,144,80"/>
+<area shape="rect" id="node1" title="Executa um algoritmo de busca no grafo." coords="5,80,144,105"/>
 <area shape="rect" id="node2" href="$classGraph.html#a848c9e407fd4ee35b62a3a4f3115d7f9" title="Executa o algoritmo de busca A*." coords="222,5,321,31"/>
 <area shape="rect" id="node3" href="$classGraph.html#add885e1212ad6274c4a51cae9daba8bf" title="Executa o algoritmo de busca em largura." coords="226,55,317,80"/>
-<area shape="rect" id="node4" href="$classFileLogger.html#aa0e8cf36d1d1e0d6336b53402716794f" title="Pegue a instância do FileLogger." coords="192,104,351,129"/>
+<area shape="rect" id="node4" href="$classGraph.html#aa68a6492460a31d511897f08059f3d5f" title="Executa o algoritmo de busca em profundidade." coords="225,104,317,129"/>
+<area shape="rect" id="node5" href="$classFileLogger.html#aa0e8cf36d1d1e0d6336b53402716794f" title="Pegue a instância do FileLogger." coords="192,153,351,179"/>
 </map>
