@@ -1,6 +1,6 @@
 #include "date_time.hpp"
 
-#include <string.h>
+#include <string>
 
 static constexpr uint8_t STR_MAX_SIZE = 32;
 

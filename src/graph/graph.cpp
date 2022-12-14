@@ -271,7 +271,7 @@ std::vector<std::string> Graph::runAlgorithm() {
     ScopedTimer t([](const char* scope, const char* time) {
         FileLogger::getInstance()
             << "Execução do algoritmo demorou: " << time << "\n";
-    });
+    }, __func__ );
 
     if (_algorithm == Algorithms::ALGORITHM_A_STAR) {
         return AStar();
