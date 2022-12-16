@@ -2,6 +2,12 @@
  * This code is member of "Legacy Support" Branch
  */
 
+// if __cplusplus is less than c++17
+#if __cplusplus < 201703L
+    #error \
+        "C++17 or greater required, please update the compiler as C++14 or less are legacy versions"
+#endif
+
 #include <unistd.h>
 
 #include <cctype>
@@ -21,7 +27,8 @@
 /**
  * @mainpage Documentação do projeto
  *
- * Todas as especificações do projeto estão no relatório técnico em docs/relat/main.pdf
+ * Todas as especificações do projeto estão no relatório técnico em
+ * docs/relat/main.pdf
  */
 
 /**
