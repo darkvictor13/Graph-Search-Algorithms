@@ -1,5 +1,6 @@
 #include "graph.hpp"
 
+#include <cstring>
 #include <functional>
 #include <queue>
 #include <unordered_map>
@@ -171,19 +172,31 @@ struct AStarNode {
               _already_traveled(already_traveled),
               _estimated_cost(estimated_cost) {
         }
+
+        int16_t getCost() const {
+            return _already_traveled + _estimated_cost;
+        }
+
+        bool operator<(const AStarNode& other) const {
+            return getCost() < other.getCost();
+        }
 };
 
 std::vector<std::string> Graph::AStar() {
     DEBUG_LOG("Iniciando A*");
-    char print_buffer[64];
+    char print_buffer[256];
+    int16_t size_print_buffer = 0;
 
     const auto graph_size = _nodes.size();
+    /*
     std::priority_queue<AStarNode, std::vector<AStarNode>,
                         std::function<bool(const AStarNode&, const AStarNode&)>>
         open([](const AStarNode& a, const AStarNode& b) {
             return a._already_traveled + a._estimated_cost >
                    b._already_traveled + b._estimated_cost;
         });
+    */
+    std::vector<AStarNode> open;
     std::unordered_map<std::string, bool> closed;
     std::string predecessors[graph_size];
 
@@ -191,11 +204,12 @@ std::vector<std::string> Graph::AStar() {
         hasHeuristic(_nodes[_start_node][getIndex(_end_node)]._state)
             ? _nodes[_start_node][getIndex(_end_node)]._heuristic
             : INT16_MAX;
-    open.push({_start_node, 0, estimated_cost});
+    open.push_back({_start_node, 0, estimated_cost});
 
     while (!open.empty()) {
-        const auto current_node = open.top();
-        open.pop();
+        std::sort(open.begin(), open.end());
+        const auto current_node = open.front();
+        open.erase(open.begin());
         sprintf(print_buffer, "Analisando nó: %s", current_node._id.c_str());
         INFO_LOG(print_buffer);
 
@@ -207,6 +221,7 @@ std::vector<std::string> Graph::AStar() {
         if (closed[current_node._id]) {
             continue;
         }
+
         closed[current_node._id] = true;
 
         for (const auto& node : _nodes[current_node._id]) {
@@ -217,8 +232,25 @@ std::vector<std::string> Graph::AStar() {
                 current_node._already_traveled + node._weight;
             const int16_t estimated_cost =
                 hasHeuristic(node._state) ? node._heuristic : INT16_MAX;
-            open.push({node._id, already_traveled, estimated_cost});
-            predecessors[getIndex(node._id)] = current_node._id;
+
+            const auto iterator_in_open = std::find_if(
+                open.begin(), open.end(), [&node](const AStarNode& n) {
+                    return n._id == node._id;
+                });
+
+            // Se já existe um nó com o mesmo id na lista aberta
+            if (iterator_in_open != open.end()) {
+                // Se o custo do nó da lista é maior que o nó que estou criando
+                if (iterator_in_open->getCost() >
+                    (already_traveled + estimated_cost)) {
+                    iterator_in_open->_already_traveled = already_traveled;
+                    iterator_in_open->_estimated_cost = estimated_cost;
+                    predecessors[getIndex(node._id)] = current_node._id;
+                }
+            } else {
+                open.push_back({node._id, already_traveled, estimated_cost});
+                predecessors[getIndex(node._id)] = current_node._id;
+            }
         }
     }
 
@@ -268,10 +300,12 @@ void Graph::setAlgorithm(const Algorithms algorithm) {
 }
 
 std::vector<std::string> Graph::runAlgorithm() {
-    ScopedTimer t([](const char* scope, const char* time) {
-        FileLogger::getInstance()
-            << "Execução do algoritmo demorou: " << time << "\n";
-    }, __func__ );
+    ScopedTimer t(
+        [](const char* scope, const char* time) {
+            FileLogger::getInstance()
+                << "Execução do algoritmo demorou: " << time << "\n";
+        },
+        __func__);
 
     if (_algorithm == Algorithms::ALGORITHM_A_STAR) {
         return AStar();
