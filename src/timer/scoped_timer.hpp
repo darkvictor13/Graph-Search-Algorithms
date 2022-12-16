@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../cxx_version_guard.h"
+
 #include <functional>
 //#include <source_location>
 #include <string_view>

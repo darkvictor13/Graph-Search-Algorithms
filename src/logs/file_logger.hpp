@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../cxx_version_guard.h"
+
 #include <fstream>
 #include <string_view>
 

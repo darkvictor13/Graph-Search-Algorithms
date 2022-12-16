@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../cxx_version_guard.h"
+
 /**
  * @brief Indica o estado de um nó.
  *

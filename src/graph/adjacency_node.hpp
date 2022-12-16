@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../cxx_version_guard.h"
+
 #include <string>
 
 #include "node_state.hpp"
