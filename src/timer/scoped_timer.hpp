@@ -1,7 +1,7 @@
 #pragma once
 
 #include <functional>
-#include <source_location>
+//#include <source_location>
 #include <string_view>
 
 #include "../logs/date_time.hpp"
@@ -22,7 +22,7 @@ typedef std::function<void(const char* scope_name, const char* formatted_time)>
             char buffer[256];                                      \
             sprintf(buffer, "%s: %s", scope_name, formatted_time); \
             DEBUG_LOG(buffer);                                     \
-        })
+        }, __func__)
 
 class ScopedTimer {
     private:
@@ -48,8 +48,7 @@ class ScopedTimer {
          * @param scope_name nome do escopo que está sendo medido.
          */
         ScopedTimer(LogFunction log_function,
-                    const char* scope_name =
-                        std::source_location::current().function_name());
+                    const char* scope_name);
         /**
          * @brief Destrutor da classe ScopedTimer.
          */

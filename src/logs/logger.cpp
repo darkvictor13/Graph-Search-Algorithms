@@ -26,14 +26,15 @@ void Logger::setLevel(const LogLevel level) {
 }
 
 void Logger::doLog(const LogLevel level, const std::string_view message,
-                   const std::source_location& source) {
+                   const std::string& filename, const std::string& function_name, int line) {
     if (level < _level) {
         return;
     }
     std::cout << "[" << getLevelName(level) << "][" << getFormattedTime()
               << "]["
-              << std::filesystem::path(source.file_name()).filename().string()
-              << ':' << source.function_name() << ':' << source.line()
+              //<< std::filesystem::path(file_name()).filename().string()
+              << filename
+              << ':' << function_name << ':' << line
               << "]: " << message << '\n';
 }
 

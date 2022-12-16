@@ -1,6 +1,6 @@
 #pragma once
 
-#include <source_location>
+//#include <source_location>
 #include <string>
 #include <string_view>
 
@@ -63,8 +63,7 @@ class Logger {
          * @param source a localização da mensagem (arquivo, linha, ...).
          */
         void doLog(const LogLevel level, const std::string_view message,
-                   const std::source_location& source =
-                       std::source_location::current());
+                   const std::string& filename, const std::string& function_name, int line);
         /**
          * @brief Destrutor da classe Logger.
          */
